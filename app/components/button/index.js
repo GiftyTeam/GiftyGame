@@ -5,7 +5,7 @@ import styles from './styles';
 const ButtonComponent = () => {
   return (
     <View style={styles.mainContainer}>
-      <Text></Text>
+      <Text>Button</Text>
     </View>
   );
 };
