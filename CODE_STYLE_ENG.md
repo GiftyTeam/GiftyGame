@@ -5,11 +5,11 @@
 Structure of file:
 - The project should be located in the folder app.
 - Each screen should be located in folder view (app/view)
-- Folder with screen should contain folders: redux,saga, _test_,(app.mainScreen/redux ...),
-- Main folder should be named index.(jsx or tsx) (app/mainScrenn/index).
+- Folder with screen should contain folders: redux,saga, _test_,(app/mainScreen/redux ...),
+- Main folder should be named index.(js or ts) (app/mainScrenn/index).
 - You should write the name of all files with camelCase (only in english)
-- Music files,the icons,svg,printing type should be located in folder assests  in the corresponding folders (app/assets/fronts ....).
-- All constants (colors,url, resource paths and so on) should be stored in next path(app/modules/utils) in utils folder
+- Music files,the icons, svg,printing type should be located in folder assests  in the corresponding folders (app/assets/fronts ....).
+- All constants (colors, url, resource paths and so on) should be stored in next path(app/modules/utils) in utils folder
 - All reused components must be located in the folder components (app/components).
 - The language structure is contained in the localization folder app/il8n or another library
 - All texts are taken from constant.To maintain localization  in the future 
@@ -52,7 +52,7 @@ Structure of file:
 
 - If a function is asynchronous (async - await)
 - If a function contains logic with JSON (JSON.stringify, JSON.parse)
-- In catch we have to show error with **console.warn('finction name: ', error);**
+- In catch we have to show error with **console.warn('function name: ', error);**
 
 ### Mixed
 
