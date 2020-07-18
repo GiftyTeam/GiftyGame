@@ -1,9 +1,10 @@
 import React from 'react';
-import MainScreen from './app/view/mainScreen';
+import 'react-native-gesture-handler';
+import AppStack from './app/modules/navigation/appStack';
 
 const App = () => {
   return (
-    <MainScreen />
+    <AppStack />
   );
 };
 
