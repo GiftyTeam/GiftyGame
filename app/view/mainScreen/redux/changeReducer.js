@@ -1,5 +1,4 @@
-const TEST = 'TEST';
-
+import {TEST} from './constants';
 const initialState = {
   test: 'test',
 };
