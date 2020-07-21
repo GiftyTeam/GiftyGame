@@ -1,34 +1,78 @@
 import React, {useState, useRef} from 'react';
-import {ImageBackground, Text, View, ScrollView} from 'react-native';
-import styles from './styles';
+import {ImageBackground, Text, View, ScrollView, StatusBar} from 'react-native';
+import {useDispatch} from 'react-redux';
 import {imgPath} from '../../modules/utils/images';
 import QuestionTimer from './components/timer';
-import DashedLine from './components/dashedLine';
 import Header from './components/header';
 import AnswerBox from './components/answerBox';
 import appLocalization from '../../localization/localization';
+import {setSelectedAnswerID} from './redux/answerAction';
+import styles from './styles';
+import { colors } from '../../modules/utils/colors';
 
 const QuestionScreen = () => {
+  //hooks
+  const dispatch = useDispatch();
+
+  // state
   const [timerInterval, setTimerInterval] = useState(10);
   const [remainingTime, setRemainingTime] = useState(timerInterval);
-  const [totalQuestions, setTotalQuestions] = useState(12);
   const [currentQuestion, setCurrentQuestion] = useState(1);
   const [totalPoints, setTotalPoints] = useState(0);
   const [questions, setQuestions] = useState([
     {
-      question:
-        '"Danone" şirkəti harda istehsal olunur?Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nunc risus, egestas eu commodo vitae, iaculis at purus. Suspendisse auctor nulla at ornare ornare. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.',
+      question: '"Danone" şirkəti harda istehsal olunur?',
       answers: ['Fransa', 'Ingiltərə', 'Rusiya', 'Almaniya'],
       correctAnswer: 'Fransa',
     },
+    {
+      question: 'This is second question',
+      answers: ['A', 'B', 'C', 'D'],
+      correctAnswer: 'B',
+    }
   ]);
-  const [selectedAnswer, setSelectedAnswer] = useState(-1);
+  const [totalQuestions, setTotalQuestions] = useState(questions.length);
   const [showResult, setShowResult] = useState(false);
   const [isAnswerCorrect, setIsAnswerCorrect] = useState(false);
+  const [disabled, setDisabled] = useState(false);
+
+  // ref
   const scrollView = useRef();
+
+  function nextQuestion() {
+    if (currentQuestion !== totalQuestions) {
+      setCurrentQuestion(currentQuestion + 1);
+      setDisabled(false);
+    } else {
+      // go to result screen
+    }
+  }
+
+  function selectAnswer(answerID) {
+    setDisabled(true);
+    let correctAnswerID =
+      questions[currentQuestion - 1].answers.indexOf(
+        questions[currentQuestion - 1].correctAnswer,
+      ) + 1;
+    setShowResult(true);
+    setIsAnswerCorrect(answerID === correctAnswerID);
+    if (answerID === correctAnswerID) setTotalPoints(totalPoints + 500);
+    dispatch(setSelectedAnswerID(answerID));
+    setTimeout(() => {
+      scrollView.current.scrollToEnd({animated: true});
+    }, 250);
+    setTimeout(() => {
+      setShowResult(false);
+      setIsAnswerCorrect(false);
+      dispatch(setSelectedAnswerID(''));
+      nextQuestion();
+    }, 1500);
+  }
+
   // TODO: Answer Selection must be done through redux state
   return (
     <ImageBackground style={styles.container} source={imgPath.mainBackground}>
+      <StatusBar backgroundColor={colors.bostonBlue} />
       <ScrollView
         ref={scrollView}
         contentContainerStyle={styles.innerContainer}>
@@ -50,73 +94,33 @@ const QuestionScreen = () => {
         <View>
           <AnswerBox
             answer={questions[currentQuestion - 1].answers[0]}
-            selectedAnswer={selectedAnswer}
             answerID={1}
-            onPress={() => {
-              setShowResult(true);
-              setIsAnswerCorrect(true);
-              setTimeout(() => {
-                scrollView.current.scrollToEnd({animated: true});
-              }, 250);
-              setTimeout(() => {
-                setShowResult(false);
-                setIsAnswerCorrect(false);
-              }, 1500);
-            }}
+            disabled={disabled}
+            onPress={() => selectAnswer(1)}
           />
         </View>
         <View style={styles.answerBoxContainer}>
           <AnswerBox
             answer={questions[currentQuestion - 1].answers[1]}
-            selectedAnswer={selectedAnswer}
             answerID={2}
-            onPress={() => {
-              setShowResult(true);
-              setIsAnswerCorrect(false);
-              setTimeout(() => {
-                scrollView.current.scrollToEnd({animated: true});
-              }, 250);
-              setTimeout(() => {
-                setShowResult(false);
-                setIsAnswerCorrect(false);
-              }, 1500);
-            }}
+            disabled={disabled}
+            onPress={() => selectAnswer(2)}
           />
         </View>
         <View style={styles.answerBoxContainer}>
           <AnswerBox
             answer={questions[currentQuestion - 1].answers[2]}
-            selectedAnswer={selectedAnswer}
             answerID={3}
-            onPress={() => {
-              setShowResult(true);
-              setIsAnswerCorrect(false);
-              setTimeout(() => {
-                scrollView.current.scrollToEnd({animated: true});
-              }, 250);
-              setTimeout(() => {
-                setShowResult(false);
-                setIsAnswerCorrect(false);
-              }, 1500);
-            }}
+            disabled={disabled}
+            onPress={() => selectAnswer(3)}
           />
         </View>
         <View style={styles.answerBoxContainer}>
           <AnswerBox
             answer={questions[currentQuestion - 1].answers[3]}
-            selectedAnswer={selectedAnswer}
             answerID={4}
-            onPress={() => {
-              setShowResult(true);
-              setIsAnswerCorrect(false);
-              setTimeout(()=>{
-                scrollView.current.scrollToEnd({animated: true})
-              }, 250)
-              setTimeout(() => {
-                setShowResult(false);
-                setIsAnswerCorrect(false);
-              }, 1500);
-            }}
+            disabled={disabled}
+            onPress={() => selectAnswer(4)}
           />
         </View>
         {showResult &&

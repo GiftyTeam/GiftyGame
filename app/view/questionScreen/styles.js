@@ -1,14 +1,13 @@
-const {StyleSheet} = require('react-native');
+import {StyleSheet, Platform} from 'react-native';
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    paddingTop: Platform.OS === 'ios' ? 60 : 60,
   },
   innerContainer: {
     flexGrow: 1,
-    paddingTop: '5%',
     paddingHorizontal: '5%',
-    paddingBottom: '5%',
   },
   timerContainer: {},
   headerContainer: {
@@ -28,15 +27,15 @@ const styles = StyleSheet.create({
   },
   questionStyle: {
     color: 'white',
-    fontSize: 36
+    fontSize: 36,
   },
-  resultContainer:{
+  resultContainer: {
     marginTop: 31,
-    alignSelf: 'center'
+    alignSelf: 'center',
   },
-  resultText:{
+  resultText: {
     color: 'white',
-    fontSize: 36
-  }
+    fontSize: 36,
+  },
 });
 export default styles;
