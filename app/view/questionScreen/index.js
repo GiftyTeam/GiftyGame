@@ -8,7 +8,7 @@ import AnswerBox from './components/answerBox';
 import appLocalization from '../../localization/localization';
 import {setSelectedAnswerID} from './redux/answerAction';
 import styles from './styles';
-import { colors } from '../../modules/utils/colors';
+import {colors} from '../../modules/utils/colors';
 
 const QuestionScreen = () => {
   //hooks
@@ -29,7 +29,7 @@ const QuestionScreen = () => {
       question: 'This is second question',
       answers: ['A', 'B', 'C', 'D'],
       correctAnswer: 'B',
-    }
+    },
   ]);
   const [totalQuestions, setTotalQuestions] = useState(questions.length);
   const [showResult, setShowResult] = useState(false);
@@ -69,7 +69,6 @@ const QuestionScreen = () => {
     }, 1500);
   }
 
-  // TODO: Answer Selection must be done through redux state
   return (
     <ImageBackground style={styles.container} source={imgPath.mainBackground}>
       <StatusBar backgroundColor={colors.bostonBlue} />

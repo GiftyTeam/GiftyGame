@@ -9,7 +9,7 @@ const DashedLine = ({style}) => {
   const noOfDashes = Math.ceil(length / (dashLength + dashGapLength));
   const dashes = [];
   for (var dashIndex = 0; dashIndex < noOfDashes; dashIndex++) {
-    dashes.push(<View key={dashIndex} style={[styles.dashStyle, style ]} />);
+    dashes.push(<View key={dashIndex} style={[styles.dashStyle, style]} />);
   }
 
   function onLayout(layoutEvent) {

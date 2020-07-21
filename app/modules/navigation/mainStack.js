@@ -20,7 +20,12 @@ const MainStack = ({navigation}) => {
         options={{
           headerTransparent: true,
           headerTitle: '',
-          headerLeft: () => <HeaderBackButton tintColor='white'onPress={() => navigation.replace('MainScreen')}/>
+          headerLeft: () => (
+            <HeaderBackButton
+              tintColor="white"
+              onPress={() => navigation.replace('MainScreen')}
+            />
+          ),
         }}
       />
     </Stack.Navigator>
