@@ -1,6 +1,6 @@
 import {colors} from '../../../../modules/utils/colors';
 
-const {StyleSheet} = require('react-native');
+import {StyleSheet} from 'react-native';
 
 const styles = StyleSheet.create({
   container: {
@@ -14,9 +14,9 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     paddingHorizontal: '2.5%',
   },
-  answerText:{
+  answerText: {
     color: 'white',
-    fontSize: 32
-  }
+    fontSize: 32,
+  },
 });
 export default styles;
