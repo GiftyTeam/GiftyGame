@@ -1,13 +1,17 @@
 import React from 'react';
-import {View, Text} from 'react-native';
+import {TouchableOpacity, Text} from 'react-native';
 import styles from './styles';
 
-const ButtonComponent = () => {
+const Button = ({onPress, buttonName, style, ...rest}) => {
   return (
-    <View style={styles.mainContainer}>
-      <Text>Button</Text>
-    </View>
+    <TouchableOpacity
+      onPress={onPress}
+      activeOpacity={0.5}
+      style={[styles.buttonContainer, style]}
+      rest={rest}>
+      <Text style={styles.buttonName}>{buttonName}</Text>
+    </TouchableOpacity>
   );
 };
 
-export default ButtonComponent;
+export default Button;

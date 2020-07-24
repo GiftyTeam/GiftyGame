@@ -1,4 +1,5 @@
 import React from 'react';
+<<<<<<< Updated upstream
 import 'react-native-gesture-handler';
 import AppStack from './app/modules/navigation/appStack';
 import {Provider} from 'react-redux';
@@ -12,6 +13,14 @@ const App = () => {
         <AppStack />
       </PersistGate>
     </Provider>
+=======
+import InstructionScreen from "./app/view/instructionScreen";
+import ProfileScreen from "./app/view/profileScreen";
+
+const App = () => {
+  return (
+    <ProfileScreen />
+>>>>>>> Stashed changes
   );
 };
 
