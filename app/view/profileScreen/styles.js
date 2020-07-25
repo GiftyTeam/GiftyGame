@@ -15,11 +15,11 @@ export const styles = StyleSheet.create({
     backgroundColor: colors.white,
     borderRadius: 20,
     paddingHorizontal: 20,
-    // justifyContent: 'center',
     justifyContent: 'space-around',
   },
   topContainer: {
     flex: 0.3,
+    width:'100%',
   },
   avatarContainer: {
     width: 138,
@@ -28,7 +28,7 @@ export const styles = StyleSheet.create({
     borderWidth: 7,
     borderColor: colors.deepSeaGreen,
     position: 'absolute',
-    left: 137,
+    left: 138,
     top: -69,
     zIndex: 1,
     backgroundColor: colors.white,
@@ -57,7 +57,7 @@ export const styles = StyleSheet.create({
     fontStyle: 'normal',
     fontSize: 25,
     lineHeight: 46,
-  }, 
+  },
   pickerPlaceholder: {
     color: colors.silver,
     fontFamily: 'BalooChettan-Regular',
@@ -77,4 +77,9 @@ export const styles = StyleSheet.create({
     width: '100%',
     paddingHorizontal: 30,
   },
+  logout:{
+    position:'absolute',
+    top:20,
+    right:20,
+  }
 });

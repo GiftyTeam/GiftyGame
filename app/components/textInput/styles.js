@@ -1,26 +1,26 @@
+import {colors} from '../../modules/utils/colors';
 import {StyleSheet} from 'react-native';
-import { colors } from '../../modules/utils/colors';
 
 export const styles = StyleSheet.create({
   input: {
-    height: 55,
-    width: '100%',
-    backgroundColor: colors.mosque,
-    justifyContent: 'center',
-    alignItems: 'center',
-    borderTopLeftRadius: 18,
-    borderTopRightRadius: 18,
-    borderBottomLeftRadius: 18,
-    borderBottomRightRadius: 18,
-    borderWidth: 5,
     borderColor: colors.fountainBlue,
+    backgroundColor: colors.mosque,
+    borderBottomRightRadius: 18,
+    borderBottomLeftRadius: 18,
+    borderTopRightRadius: 18,
+    justifyContent: 'center',
+    borderTopLeftRadius: 18,
     paddingHorizontal: 30,
+    alignItems: 'center',
+    borderWidth: 5,
+    width: '100%',
+    height: 55,
   },
   inputText: {
-    color: colors.white,
     fontFamily: 'BalooChettan-Regular',
+    color: colors.white,
     fontStyle: 'normal',
-    fontSize: 25,
     lineHeight: 46,
+    fontSize: 25,
   },
 });

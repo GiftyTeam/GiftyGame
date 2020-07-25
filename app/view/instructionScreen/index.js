@@ -1,18 +1,12 @@
+import {ImageBackground, StatusBar, Image, View} from 'react-native';
 import appLocalization from '../../localization/localization';
 import AppIntroSlider from 'react-native-app-intro-slider';
 import {imgPath} from '../../modules/utils/images';
 import {colors} from '../../modules/utils/colors';
+import BackIcon from '../../components/backIcon';
 import Button from '../../components/button';
 import React, {useState} from 'react';
 import {styles} from './styles';
-import {
-  View,
-  Text,
-  ImageBackground,
-  TouchableOpacity,
-  Image,
-} from 'react-native';
-
 const SLIDES = [
   {
     key: `${Math.random(100)}`,
@@ -44,14 +38,14 @@ const SLIDES = [
   },
 ];
 
-const InstructionScreen = () => {
+const InstructionScreen = ({navigation}) => {
   const _renderItem = ({item}) => {
     return (
       <View key={item.key}>
         <Image
           source={{uri: item.image}}
-          resizeMode={'cover'}
           style={styles.image}
+          resizeMode={'cover'}
         />
       </View>
     );
@@ -59,16 +53,16 @@ const InstructionScreen = () => {
   const _renderNextButton = () => {
     return (
       <Button
+        style={{backgroundColor: colors.robinsBlue}}
         buttonName={appLocalization.nextButton}
-        style={{backgroundColor: colors.pickledBluewood}}
       />
     );
   };
   const _renderDoneButton = () => {
     return (
       <Button
-        buttonName={appLocalization.doneButton}
         style={{backgroundColor: colors.robinsBlue}}
+        buttonName={appLocalization.doneButton}
       />
     );
   };
@@ -76,14 +70,20 @@ const InstructionScreen = () => {
     <ImageBackground
       style={{width: '100%', height: '100%'}}
       source={imgPath.mainBackground}>
+      <StatusBar backgroundColor={colors.bostonBlue} />
       <View style={[styles.container, {flex: 1}]}>
-        <AppIntroSlider
-          renderNextButton={_renderNextButton}
-          renderDoneButton={_renderDoneButton}
-          renderItem={_renderItem}
-          bottomButton={true}
-          data={SLIDES}
-        />
+        <View style={{flex: 0.1}}>
+          <BackIcon navigation={navigation}/>
+        </View>
+        <View style={{flex: 0.9}}>
+          <AppIntroSlider
+            renderNextButton={_renderNextButton}
+            renderDoneButton={_renderDoneButton}
+            renderItem={_renderItem}
+            bottomButton={true}
+            data={SLIDES}
+          />
+        </View>
       </View>
     </ImageBackground>
   );

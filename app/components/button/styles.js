@@ -1,21 +1,21 @@
-import { colors } from '../../modules/utils/colors';
+import {colors} from '../../modules/utils/colors';
 import {StyleSheet} from 'react-native';
 
 const styles = StyleSheet.create({
   buttonContainer: {
-    width: '100%',
-    height: 55,
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: 15,
-    marginBottom: 10,
+    marginBottom: 20,
+    width: '100%',
+    height: 55,
   },
   buttonName: {
-    color: colors.white,
     fontFamily: 'BalooChettan-Regular',
+    color: colors.white,
     fontStyle: 'normal',
-    fontSize: 30,
     lineHeight: 46,
+    fontSize: 30,
   },
 });
 
