@@ -1,13 +1,12 @@
-import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import appLocalization from '../../localization/localization';
-import DropDownPicker from 'react-native-dropdown-picker';
 import Icon from 'react-native-vector-icons/Feather';
 import {imgPath} from '../../modules/utils/images';
 import {colors} from '../../modules/utils/colors';
+import Picker from './components/dropDownPicker';
 import BackIcon from '../../components/backIcon';
-import React, {useState, useEffect} from 'react';
 import Input from '../../components/textInput';
 import Button from '../../components/button';
+import React, {useState} from 'react';
 import {styles} from './styles';
 import {
   TouchableWithoutFeedback,
@@ -18,11 +17,7 @@ import {
   Image,
   View,
 } from 'react-native';
-
 const ProfileScreen = ({navigation}) => {
-  const [selectedValue, setSelectedValue] = useState({
-    city: '',
-  });
   const [isAvatarSelected, setIsAvatarSelected] = useState(false);
   const [isAllDataEntered, setIsAllDataEntered] = useState(false);
   const handleProfilePhoto = () => {
@@ -63,41 +58,7 @@ const ProfileScreen = ({navigation}) => {
             <View style={{flex: 0.35}}></View>
             <Input placeholder={appLocalization.inputNamePlaceholder} />
             <Input placeholder={appLocalization.inputSurnamePlaceholder} />
-            <View>
-              <DropDownPicker
-                items={[
-                  {
-                    label: 'Baku',
-                    value: 'baku',
-                  },
-                  {
-                    label: 'Gandja',
-                    value: 'gandja',
-                  },
-                ]}
-                containerStyle={{height: 55, width: '100%'}}
-                placeholderStyle={styles.pickerPlaceholder}
-                selectedLabelStyle={styles.selectedLabel}
-                placeholder={appLocalization.pickerTitle}
-                onChangeItem={(item) =>
-                  setSelectedValue({['city']: item.value})
-                }
-                defaultValue={selectedValue.city}
-                itemStyle={{
-                  justifyContent: 'flex-start',
-                }}
-                style={styles.picker}
-                showArrow={false}
-              />
-              <View style={{position: 'absolute', top: 16, right: 30}}>
-                <FontAwesome5
-                  name={'list'}
-                  solid
-                  size={23}
-                  color={colors.white}
-                />
-              </View>
-            </View>
+            <Picker />
             <Input placeholder={appLocalization.inputAddressPlaceholder} />
             <Button
               onPress={() => navigation.navigate('InstructionScreen')}

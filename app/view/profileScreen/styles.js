@@ -1,5 +1,5 @@
-import {StyleSheet} from 'react-native';
 import {colors} from '../../modules/utils/colors';
+import {StyleSheet} from 'react-native';
 
 export const styles = StyleSheet.create({
   container: {
@@ -38,44 +38,6 @@ export const styles = StyleSheet.create({
   uploadPhoto: {
     width: 51,
     height: 49,
-  },
-  picker: {
-    backgroundColor: colors.mosque,
-    justifyContent: 'center',
-    alignItems: 'center',
-    borderTopLeftRadius: 18,
-    borderTopRightRadius: 18,
-    borderBottomLeftRadius: 18,
-    borderBottomRightRadius: 18,
-    borderWidth: 5,
-    borderColor: colors.fountainBlue,
-    paddingHorizontal: 25,
-  },
-  selectedLabel: {
-    color: colors.white,
-    fontFamily: 'BalooChettan-Regular',
-    fontStyle: 'normal',
-    fontSize: 25,
-    lineHeight: 46,
-  },
-  pickerPlaceholder: {
-    color: colors.silver,
-    fontFamily: 'BalooChettan-Regular',
-    fontStyle: 'normal',
-    fontSize: 25,
-    lineHeight: 46,
-  },
-  inputText: {
-    color: colors.white,
-    fontFamily: 'BalooChettan-Regular',
-    fontStyle: 'normal',
-    fontSize: 25,
-    lineHeight: 46,
-  },
-  input: {
-    height: 55,
-    width: '100%',
-    paddingHorizontal: 30,
   },
   logout:{
     position:'absolute',
