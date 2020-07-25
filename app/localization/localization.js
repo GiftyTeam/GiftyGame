@@ -9,6 +9,9 @@ const appLocalization = new LocalizedStrings({
         inputNamePlaceholder:'Adınız',
         inputSurnamePlaceholder:'Soyadınız',
         inputAddressPlaceholder:'Ünvan',
+        question:'Sual',
+        correctResult: 'Əla!',
+        wrongResult: 'Səhv!'
     },
     'en': {
         appName: 'Gifty',
@@ -18,6 +21,7 @@ const appLocalization = new LocalizedStrings({
         inputNamePlaceholder:'Name',
         inputSurnamePlaceholder:'Surname',
         inputAddressPlaceholder:'Address',
+        question:'Question'
     },
 });
 
