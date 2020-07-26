@@ -86,4 +86,9 @@ export const buttonStyle = {
     height: 60,
     borderRadius: 18,
   },
+  buttonView:{
+    marginTop: '30%',
+    justifyContent: 'center',
+    alignItems: 'center',
+  }
 };
