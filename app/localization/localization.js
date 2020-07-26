@@ -1,28 +1,46 @@
 import LocalizedStrings from 'react-native-localization';
 
 const appLocalization = new LocalizedStrings({
-    'az': {
-        appName: 'Gifty',
-        nextButton: 'Irəli',
-        doneButton:'Hazır',
-        pickerTitle:'Şəhər',
-        inputNamePlaceholder:'Adınız',
-        inputSurnamePlaceholder:'Soyadınız',
-        inputAddressPlaceholder:'Ünvan',
-        question:'Sual',
-        correctResult: 'Əla!',
-        wrongResult: 'Səhv!'
-    },
-    'en': {
-        appName: 'Gifty',
-        nextButton: 'Next',
-        doneButton:'Done',
-        pickerTitle:'City',
-        inputNamePlaceholder:'Name',
-        inputSurnamePlaceholder:'Surname',
-        inputAddressPlaceholder:'Address',
-        question:'Question'
-    },
+  az: {
+    appName: 'Gifty',
+    nextButton: 'Irəli',
+    doneButton: 'Hazır',
+    pickerTitle: 'Şəhər',
+    inputNamePlaceholder: 'Adınız',
+    inputSurnamePlaceholder: 'Soyadınız',
+    inputAddressPlaceholder: 'Ünvan',
+    question: 'Sual',
+    correctResult: 'Əla!',
+    wrongResult: 'Səhv!',
+    date: 'Tarix',
+    scores: 'Xallar',
+    score: 'Xal',
+    totalScore: 'Ümumi Xallar',
+    rules: 'Qaydalar',
+    howToPlay: 'Necə oynayım?',
+    profile: 'Profil',
+    trueAnswer: 'Düzgün Cavablar :',
+    wrongAnswer: 'Səhv Cavablar :',
+  },
+  en: {
+    appName: 'Gifty',
+    nextButton: 'Next',
+    doneButton: 'Done',
+    pickerTitle: 'City',
+    inputNamePlaceholder: 'Name',
+    inputSurnamePlaceholder: 'Surname',
+    inputAddressPlaceholder: 'Address',
+    question: 'Question',
+    date: 'Date',
+    scores: 'Scores',
+    score: 'Score',
+    totalScore: 'Total Score',
+    rules: 'Rules',
+    howToPlay: 'How to Play',
+    profile: 'Profile',
+    trueAnswer: 'True Answers :',
+    wrongAnswer: 'Wrong Answers :',
+  },
 });
 
 export default appLocalization;

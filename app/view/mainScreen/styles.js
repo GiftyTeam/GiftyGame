@@ -1,10 +1,80 @@
-const {StyleSheet} = require('react-native');
+import {StyleSheet} from 'react-native';
 
-const styles = StyleSheet.create({
+export const scoreBoardStyles = StyleSheet.create({
   container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
+    height: 211,
   },
-});
-export default styles;
+  scoreBoardHeaderAndBottom: {
+    flexDirection: 'row',
+  },
+  scoreBoardHeaderComponent: {
+    width: '49.8%',
+    alignItems: 'center',
+    height: 43,
+    backgroundColor: '#055B61',
+  },
+  scoreBoardHeaderText: {
+    fontSize: 30,
+    color: '#FFFFFF',
+  },
+  Line: {
+    width: '0.4%',
+    backgroundColor: '#C4C4C4',
+  },
+  flatContainer: {
+    flexDirection: 'row',
+    height: 25,
+    backgroundColor: '#CFCFCF',
+    opacity: 0.3,
+  },
+  flatComponent: {
+    width: '49.8%',
+    alignItems: 'center',
+    height: 25,
+  },
+  flatText: {
+    fontSize: 24,
+    color: '#000000',
+  },
+  botomContainer: {
+    width: '50%',
+    alignItems: 'center',
+    height: 43,
+    backgroundColor: '#055B61',
+  },
+  bottomText: {
+    fontSize: 30,
+    color: '#FFFFFF',
+  },
+})
+
+
+export const modalStyle = StyleSheet.create({
+  container:{
+    paddingTop:45,
+    alignItems:'flex-end',
+    marginRight:10,
+  },
+  buttonStyle:{
+    height:28,
+    width:144,
+    justifyContent:'center',
+    backgroundColor:'#055B61'
+  },
+  buttonText:{
+    fontSize:18,
+    marginLeft:5,
+    color:'#FFFFFF'
+  },
+  rectangleContainer:{
+    alignItems:'center',
+    width:144,
+    backgroundColor:'#055B61'
+  },
+  rectangle:{
+    height:1,
+    width:134,
+    backgroundColor:"#C4C4C4"
+  }
+
+})
