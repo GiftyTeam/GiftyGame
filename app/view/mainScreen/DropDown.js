@@ -1,12 +1,6 @@
 import React from 'react';
 import {useDispatch, useSelector} from 'react-redux';
-import {
-  View,
-  Text,
-  Modal,
-  TouchableOpacity,
-  TouchableWithoutFeedback,
-} from 'react-native';
+import {View, Text, Modal, TouchableOpacity} from 'react-native';
 import {modalStyle} from './styles';
 import {ModalVisible} from './redux/changeAction';
 import appLocalization from '../../localization/localization';
@@ -21,8 +15,10 @@ const DropDown = () => {
     <Modal
       visible={modalVisible}
       transparent={true}
-      onRequestClose={() => dispatch(ModalVisible(false))}>
-      <TouchableWithoutFeedback
+      onRequestClose={() => dispatch(ModalVisible(false))}
+      onDismiss={() => dispatch(ModalVisible(false))}>
+      <TouchableOpacity
+        style={{flex: 1}}
         onPress={() => {
           dispatch(ModalVisible(false));
         }}>
@@ -36,7 +32,7 @@ const DropDown = () => {
           </TouchableOpacity>
 
           <View style={modalStyle.rectangleContainer}>
-            <View style={modalStyle.rectangle} />
+            <TouchableOpacity style={modalStyle.rectangle} />
           </View>
 
           <TouchableOpacity
@@ -48,7 +44,7 @@ const DropDown = () => {
           </TouchableOpacity>
 
           <View style={modalStyle.rectangleContainer}>
-            <View style={modalStyle.rectangle} />
+            <TouchableOpacity style={modalStyle.rectangle} />
           </View>
 
           <TouchableOpacity
@@ -57,7 +53,7 @@ const DropDown = () => {
             <Text style={modalStyle.buttonText}>{appLocalization.profile}</Text>
           </TouchableOpacity>
         </View>
-      </TouchableWithoutFeedback>
+      </TouchableOpacity>
     </Modal>
   );
 };

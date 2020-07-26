@@ -10,7 +10,7 @@ import {buttonStyle} from './styles';
 const MainScreen = () => {
   const Modalls = () => {
     return (
-      <View style={{marginTop: 45}}>
+      <View style={{marginTop: 45,}}>
         <DropDown />
       </View>
     );
@@ -29,7 +29,6 @@ const MainScreen = () => {
           <View style={{paddingTop: 200}}>
             <ScoreBoard />
           </View>
-
           <View
             style={{
               marginTop: '30%',
@@ -39,6 +38,7 @@ const MainScreen = () => {
             <Button
               buttonName={appLocalization.startGame}
               style={buttonStyle.container}
+              onPress={()=>console.log('Start Game')}
             />
           </View>
         </View>
