@@ -4,10 +4,10 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     paddingTop: Platform.OS === 'ios' ? 60 : 60,
+    paddingHorizontal: '5%',
   },
   innerContainer: {
     flexGrow: 1,
-    paddingHorizontal: '5%',
   },
   timerContainer: {},
   headerContainer: {
@@ -18,7 +18,7 @@ const styles = StyleSheet.create({
   },
   answersContainer: {
     padding: 10,
-    marginTop: 10,
+    marginTop: 130,
     flexDirection: 'column',
     justifyContent: 'space-between',
   },

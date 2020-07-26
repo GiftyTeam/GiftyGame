@@ -1,5 +1,5 @@
 import appLocalization from '../../../../localization/localization';
-import {SLIDES} from '../../../../../__mocks__/imageSliderData';
+// import {SLIDES} from '../../../../../__mocks__/imageSliderData';
 import AppIntroSlider from 'react-native-app-intro-slider';
 import {colors} from '../../../../modules/utils/colors';
 import Button from '../../../../components/button';
@@ -44,7 +44,7 @@ const ImageSlider = () => {
       renderDoneButton={_renderDoneButton}
       renderItem={_renderItem}
       bottomButton={true}
-      data={SLIDES}
+      // data={SLIDES}
     />
   );
 };

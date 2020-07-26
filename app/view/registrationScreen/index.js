@@ -6,10 +6,15 @@ import appLocalization from '../../localization/localization';
 
 const RegistrationScreen = (props) => {
   return (
-      <ImageBackground source={imgPath.mainBackground} style={styles.container}>
-        <Text>Registration Sceen</Text>
-        <Button onPress={() =>props.navigation.navigate('MainStack')} title="go to main"/>
-      </ImageBackground>
+    <ImageBackground source={imgPath.mainBackground} style={styles.container}>
+      <Text style={{fontFamily: 'BalooChettan-Regular', color: 'white'}}>
+        Registration Sceen
+      </Text>
+      <Button
+        onPress={() => props.navigation.navigate('MainStack')}
+        title="go to main"
+      />
+    </ImageBackground>
   );
 };
 export default RegistrationScreen;

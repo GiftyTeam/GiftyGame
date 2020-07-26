@@ -3,6 +3,7 @@ import {View, Text} from 'react-native';
 import styles from './styles';
 import DashedLine from '../dashedLine';
 import appLocalization from '../../../../localization/localization';
+import AppText from '../../../../components/appText';
 
 const Header = ({totalQuestions, currentQuestion, totalPoints}) => {
   return (
@@ -13,20 +14,16 @@ const Header = ({totalQuestions, currentQuestion, totalPoints}) => {
             flexDirection: 'row',
             justifyContent: 'space-around',
           }}>
-          <Text>
-            <Text style={styles.questionTextStyle}>
+          <AppText>
+            <AppText style={styles.questionTextStyle}>
               {appLocalization.question}
-            </Text>
-            <Text style={styles.questionNoTextStyle}>
+            </AppText>
+            <AppText style={styles.questionNoTextStyle} type={1}>
               {' ' + currentQuestion + '/' + totalQuestions}
-            </Text>
-          </Text>
+            </AppText>
+          </AppText>
         </View>
-        <View>
-          <Text>
-            <Text style={styles.pointTextStyle}>{totalPoints}</Text>
-          </Text>
-        </View>
+          <AppText style={styles.pointTextStyle}>{totalPoints}</AppText>
       </View>
       <DashedLine style={styles.dashStyle} />
     </View>

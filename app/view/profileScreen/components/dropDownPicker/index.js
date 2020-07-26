@@ -1,6 +1,6 @@
 import appLocalization from '../../../../localization/localization';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
-import {DATA} from '../../../../../__mocks__/dropDownPickerData';
+// import {DATA} from '../../../../../__mocks__/dropDownPickerData';
 import DropDownPicker from 'react-native-dropdown-picker';
 import {colors} from '../../../../modules/utils/colors';
 import React, {useState} from 'react';
