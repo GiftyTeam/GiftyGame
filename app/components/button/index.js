@@ -1,12 +1,19 @@
 import React from 'react';
-import {View, Text} from 'react-native';
+import {TouchableOpacity, Text} from 'react-native';
 import styles from './styles';
+import {colors} from '../../modules/utils/colors';
 
-const ButtonComponent = () => {
+const ButtonComponent = ({name, onPress, isDisabled = true}) => {
+  const backgroundColor = isDisabled
+    ? colors.pickledBluewood
+    : colors.robinsBlue;
   return (
-    <View style={styles.mainContainer}>
-      <Text>Button</Text>
-    </View>
+    <TouchableOpacity
+      style={{...styles.btn, backgroundColor: backgroundColor}}
+      onPress={onPress}
+      disabled={isDisabled}>
+      <Text style={styles.btnText}>{name}</Text>
+    </TouchableOpacity>
   );
 };
 

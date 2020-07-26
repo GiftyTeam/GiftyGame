@@ -1,10 +1,20 @@
-import {StyleSheet} from 'react-native'
+import {StyleSheet} from 'react-native';
+import {colors} from '../../modules/utils/colors';
 
 const styles = StyleSheet.create({
-    mainContainer: {
-        flex: 1,
-        backgroundColor: 'red',
-    },
-})
+  btn: {
+    width: '100%',
+    height: 60,
+    borderRadius: 18,
+    backgroundColor: colors.pickledBluewood,
+    marginTop: 15,
+    alignItems: "center",
+    justifyContent: "center"
+  },
+  btnText: {
+      fontSize:32,
+      color: "white"
+  }
+});
 
-export default styles
+export default styles;
