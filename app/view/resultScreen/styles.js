@@ -50,3 +50,14 @@ export const descriptionStyle = StyleSheet.create({
     color: '#FFFFFF',
   },
 });
+
+
+export const buttonStyle ={
+  container: {
+    backgroundColor: '#03C3CF',
+    width: '85%',
+    height: 60,
+    borderRadius: 18,
+    marginTop: '30%',
+  },
+};

@@ -78,3 +78,12 @@ export const modalStyle = StyleSheet.create({
   }
 
 })
+
+export const buttonStyle = {
+  container: {
+    backgroundColor: '#03C3CF',
+    width: '85%',
+    height: 60,
+    borderRadius: 18,
+  },
+};
