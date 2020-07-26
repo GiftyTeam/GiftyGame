@@ -12,6 +12,8 @@ const styles = StyleSheet.create({
     fontSize: 32,
     color: 'white',
     paddingHorizontal: 20,
+    fontFamily: 'BalooChettan-Regular',
+    color: colors.white,
   },
 });
 
