@@ -1,5 +1,5 @@
 import {ImageBackground, StatusBar, View} from 'react-native';
-import ImageSlider from './components/imageSlider';
+// import ImageSlider from './components/imageSlider';
 import {imgPath} from '../../modules/utils/images';
 import {colors} from '../../modules/utils/colors';
 import BackIcon from '../../components/backIcon';
@@ -16,9 +16,7 @@ const InstructionScreen = ({navigation}) => {
         <View style={{flex: 0.1}}>
           <BackIcon navigation={navigation} />
         </View>
-        <View style={{flex: 0.9}}>
-          <ImageSlider />
-        </View>
+        <View style={{flex: 0.9}}>{/* <ImageSlider /> */}</View>
       </View>
     </ImageBackground>
   );

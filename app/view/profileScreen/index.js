@@ -2,7 +2,7 @@ import appLocalization from '../../localization/localization';
 import Icon from 'react-native-vector-icons/Feather';
 import {imgPath} from '../../modules/utils/images';
 import {colors} from '../../modules/utils/colors';
-import Picker from './components/dropDownPicker';
+// import Picker from './components/dropDownPicker';
 import BackIcon from '../../components/backIcon';
 import Input from '../../components/textInput';
 import Button from '../../components/button';
@@ -58,7 +58,7 @@ const ProfileScreen = ({navigation}) => {
             <View style={{flex: 0.35}}></View>
             <Input placeholder={appLocalization.inputNamePlaceholder} />
             <Input placeholder={appLocalization.inputSurnamePlaceholder} />
-            <Picker />
+            {/* <Picker /> */}
             <Input placeholder={appLocalization.inputAddressPlaceholder} />
             <Button
               onPress={() => navigation.navigate('InstructionScreen')}
