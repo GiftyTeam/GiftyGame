@@ -10,11 +10,20 @@
     "lint": "eslint ."
   },
   "dependencies": {
+<<<<<<< Updated upstream
     "@react-native-community/async-storage": "1.11.0",
     "@react-native-community/masked-view": "0.1.10",
     "@react-navigation/native": "5.7.0",
     "@react-navigation/stack": "5.7.0",
     "react": "16.13.1",
+=======
+    "@react-native-community/async-storage": "^1.11.0",
+    "@react-native-community/masked-view": "^0.1.10",
+    "@react-navigation/native": "^5.7.0",
+    "@react-navigation/stack": "^5.7.1",
+    "async-storage": "^0.1.0",
+    "react": "^16.13.1",
+>>>>>>> Stashed changes
     "react-native": "0.63.0",
     "react-native-app-intro-slider": "4.0.4",
     "react-native-dropdown-picker": "3.1.11",
