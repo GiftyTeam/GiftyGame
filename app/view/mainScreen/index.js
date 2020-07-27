@@ -1,16 +1,22 @@
 import React from 'react';
-import {View, StatusBar, ImageBackground, SafeAreaView} from 'react-native';
+import {
+  View,
+  StatusBar,
+  ImageBackground,
+  SafeAreaView,
+  Image,
+} from 'react-native';
 import {imgPath} from '../../modules/utils/images';
 import ScoreBoard from './scoreBoard';
-import DropDown from './DropDown';
+import DropDown from './dropDown';
 import Button from '../../components/button/index';
 import appLocalization from '../../localization/localization';
-import {buttonStyle} from './styles';
+import {buttonStyle, logoStyle} from './styles';
 
 const MainScreen = () => {
   const Modalls = () => {
     return (
-      <View style={{marginTop: 45,}}>
+      <View style={{marginTop: 45}}>
         <DropDown />
       </View>
     );
@@ -26,19 +32,27 @@ const MainScreen = () => {
           <View style={{marginTop: 45}}>
             <Modalls />
           </View>
-          <View style={{paddingTop: 200}}>
+
+          <View style={logoStyle.logoView}>
+            <Image
+              source={require('../../assets//images/logo.png')}
+              style={logoStyle.logo}
+            />
+          </View>
+
+          <View style={{marginTop: 100}}>
             <ScoreBoard />
           </View>
           <View
             style={{
-              marginTop: '30%',
+              marginTop: '20%',
               justifyContent: 'center',
               alignItems: 'center',
             }}>
             <Button
               buttonName={appLocalization.startGame}
               style={buttonStyle.container}
-              onPress={()=>console.log('Start Game')}
+              onPress={() => console.log('Start Game')}
             />
           </View>
         </View>

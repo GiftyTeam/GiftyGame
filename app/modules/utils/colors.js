@@ -10,4 +10,7 @@ export const colors = {
   sherpaBlue: '#014e53',
   bostonBlue: '#3F9DB7',
   azureRadiance: '#117EEB',
+  black:'#000000',
+  gray77:'#c4c4c4',
+  gray81:'#cfcfcf'
 };

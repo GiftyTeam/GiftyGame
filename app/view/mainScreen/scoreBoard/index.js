@@ -1,7 +1,7 @@
 import React from 'react';
 import {View, Text, FlatList} from 'react-native';
 import {scoreBoardStyles} from './styles';
-import appLocalization from '../../localization/localization';
+import appLocalization from '../../../localization/localization';
 
 const ScoreBoard = () => {
   const data = [

@@ -1,5 +1,5 @@
 import {StyleSheet} from 'react-native';
-
+import {colors} from '../../modules/utils/colors'
 export const resultScreenStyles = StyleSheet.create({
   backgroundImageStyle: {
     width: '100%',
@@ -9,55 +9,25 @@ export const resultScreenStyles = StyleSheet.create({
     alignItems: 'center',
     flex: 1,
   },
-  scoreComponent: {
-    flexDirection: 'row',
-    height: 52,
-    width: 141,
-    alignItems: 'center',
-    marginTop: 200,
-    justifyContent: 'space-between',
-  },
-  scoreText: {
-    fontSize: 36,
-    color: '#FFFFFF',
-  },
-  infoTextView: {
-    flexDirection: 'row',
-    height: 52,
-    width: 141,
-    alignItems: 'center',
-    marginTop: 68,
-  },
-  infoText: {
-    fontSize: 36,
-    marginRight: 5,
-    color: '#FFFFFF',
-  },
 });
 
-export const descriptionStyle = StyleSheet.create({
+export const buttonStyle = {
   container: {
-    height: 104,
-    width: 349,
-    marginTop: 38,
-  },
-  component: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-  },
-  componentText: {
-    fontSize: 36,
-    color: '#FFFFFF',
-  },
-});
-
-
-export const buttonStyle ={
-  container: {
-    backgroundColor: '#03C3CF',
+    backgroundColor: colors.robinsBlue,
     width: '85%',
     height: 60,
     borderRadius: 18,
-    marginTop: '30%',
+    marginTop: '15%',
   },
 };
+
+export const logoStyle = StyleSheet.create({
+  logoView: {
+    alignItems: 'center',
+    marginTop: 158,
+  },
+  logo: {
+    height: 100,
+    width: 130,
+  },
+});

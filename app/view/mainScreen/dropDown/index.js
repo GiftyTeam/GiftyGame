@@ -2,8 +2,8 @@ import React from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import {View, Text, Modal, TouchableOpacity} from 'react-native';
 import {modalStyle} from './styles';
-import {ModalVisible} from './redux/changeAction';
-import appLocalization from '../../localization/localization';
+import {ModalVisible} from '../redux/changeAction';
+import appLocalization from '../../../localization/localization';
 
 const DropDown = () => {
   const dispatch = useDispatch();
@@ -27,7 +27,7 @@ const DropDown = () => {
             onPress={() => {
               console.log('Rules');
             }}
-            style={modalStyle.buttonStyle}>
+            style={modalStyle.buttonStyle1}>
             <Text style={modalStyle.buttonText}>{appLocalization.rules}</Text>
           </TouchableOpacity>
 
@@ -37,7 +37,7 @@ const DropDown = () => {
 
           <TouchableOpacity
             onPress={() => console.log('Play')}
-            style={modalStyle.buttonStyle}>
+            style={modalStyle.buttonStyle2}>
             <Text style={modalStyle.buttonText}>
               {appLocalization.howToPlay}
             </Text>
@@ -49,7 +49,7 @@ const DropDown = () => {
 
           <TouchableOpacity
             onPress={() => console.log('Profile')}
-            style={modalStyle.buttonStyle}>
+            style={modalStyle.buttonStyle3}>
             <Text style={modalStyle.buttonText}>{appLocalization.profile}</Text>
           </TouchableOpacity>
         </View>

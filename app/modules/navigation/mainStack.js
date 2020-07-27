@@ -18,7 +18,7 @@ const MainStack = ({navigation}) => {
   );
 
   return (
-    <Stack.Navigator initialRouteName="MainScreen">
+    <Stack.Navigator initialRouteName="ResultScreen">
       <Stack.Screen
         name="MainScreen"
         component={MainScreen}
