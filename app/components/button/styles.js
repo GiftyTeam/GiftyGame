@@ -1,22 +1,21 @@
-import {colors} from '../../modules/utils/colors';
 import {StyleSheet} from 'react-native';
+import {colors} from '../../modules/utils/colors';
 
 const styles = StyleSheet.create({
-  buttonContainer: {
-    justifyContent: 'center',
-    alignItems: 'center',
-    borderRadius: 15,
-    marginBottom: 20,
+  btn: {
     width: '100%',
-    height: 55,
+    height: 60,
+    borderRadius: 18,
+    backgroundColor: colors.pickledBluewood,
+    marginTop: 15,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
-  buttonName: {
+  btnText: {
+    fontSize: 32,
+    color: 'white',
     fontFamily: 'BalooChettan-Regular',
-    color: colors.white,
     fontStyle: 'normal',
-    lineHeight: 46,
-    fontSize: 30,
   },
 });
-
 export default styles;
