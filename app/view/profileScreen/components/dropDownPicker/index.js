@@ -14,7 +14,7 @@ const Picker = () => {
 
   return (
     <View>
-      <DropDownPicker
+      {/* <DropDownPicker
         items={DATA}
         onChangeItem={(item) => setSelectedValue({['city']: item.value})}
         containerStyle={{height: 55, width: '100%'}}
@@ -27,7 +27,7 @@ const Picker = () => {
         }}
         style={styles.picker}
         showArrow={false}
-      />
+      /> */}
       <View style={{position: 'absolute', top: 16, right: 30}}>
         <FontAwesome5 name={'list'} solid size={23} color={colors.white} />
       </View>

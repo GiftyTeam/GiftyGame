@@ -21,7 +21,9 @@ const appLocalization = new LocalizedStrings({
         inputNamePlaceholder:'Name',
         inputSurnamePlaceholder:'Surname',
         inputAddressPlaceholder:'Address',
-        question:'Question'
+        question:'Question',
+        correctResult: 'Correct!',
+        wrongResult: 'Wrong!'
     },
 });
 

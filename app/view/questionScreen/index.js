@@ -37,9 +37,6 @@ const QuestionScreen = () => {
   const [isAnswerCorrect, setIsAnswerCorrect] = useState(false);
   const [disabled, setDisabled] = useState(false);
 
-  // ref
-  const scrollView = useRef();
-
   function nextQuestion() {
     if (currentQuestion !== totalQuestions) {
       setCurrentQuestion(currentQuestion + 1);
@@ -60,9 +57,6 @@ const QuestionScreen = () => {
     if (answerID === correctAnswerID) setTotalPoints(totalPoints + 500);
     dispatch(setSelectedAnswerID(answerID));
     setTimeout(() => {
-      scrollView.current.scrollToEnd({animated: true});
-    }, 250);
-    setTimeout(() => {
       setShowResult(false);
       setIsAnswerCorrect(false);
       dispatch(setSelectedAnswerID(''));
@@ -72,28 +66,28 @@ const QuestionScreen = () => {
 
   return (
     <ImageBackground style={styles.container} source={imgPath.mainBackground}>
-      <StatusBar backgroundColor={colors.bostonBlue} />
-      <View style={styles.timerContainer}>
-        <QuestionTimer remainingTime={remainingTime} />
-      </View>
-      <View style={styles.headerContainer}>
-        <Header
-          totalQuestions={totalQuestions}
-          currentQuestion={currentQuestion}
-          totalPoints={totalPoints}
-        />
-      </View>
-      <ScrollView
-        ref={scrollView}
-        contentContainerStyle={styles.innerContainer}
-        showsVerticalScrollIndicator={false}>
+      <View style={styles.innerContainer}>
+        <StatusBar backgroundColor={colors.bostonBlue} />
+        <View style={styles.timerContainer}>
+          <QuestionTimer remainingTime={remainingTime} />
+        </View>
+        <View style={styles.headerContainer}>
+          <Header
+            totalQuestions={totalQuestions}
+            currentQuestion={currentQuestion}
+            totalPoints={totalPoints}
+          />
+        </View>
         <View style={styles.questionContainer}>
           <AppText style={styles.questionStyle}>
             {questions[currentQuestion - 1].question}
           </AppText>
         </View>
         <View style={styles.answersContainer}>
-          <View>
+          <View
+            style={{
+              justifyContent: 'center',
+            }}>
             <AnswerBox
               answer={questions[currentQuestion - 1].answers[0]}
               answerID={1}
@@ -101,7 +95,11 @@ const QuestionScreen = () => {
               onPress={() => selectAnswer(1)}
             />
           </View>
-          <View style={styles.answerBoxContainer}>
+          <View
+            style={{
+              justifyContent: 'center',
+              marginTop: 10,
+            }}>
             <AnswerBox
               answer={questions[currentQuestion - 1].answers[1]}
               answerID={2}
@@ -109,7 +107,11 @@ const QuestionScreen = () => {
               onPress={() => selectAnswer(2)}
             />
           </View>
-          <View style={styles.answerBoxContainer}>
+          <View
+            style={{
+              justifyContent: 'center',
+              marginTop: 10,
+            }}>
             <AnswerBox
               answer={questions[currentQuestion - 1].answers[2]}
               answerID={3}
@@ -117,7 +119,11 @@ const QuestionScreen = () => {
               onPress={() => selectAnswer(3)}
             />
           </View>
-          <View style={styles.answerBoxContainer}>
+          <View
+            style={{
+              justifyContent: 'center',
+              marginTop: 10,
+            }}>
             <AnswerBox
               answer={questions[currentQuestion - 1].answers[3]}
               answerID={4}
@@ -141,7 +147,7 @@ const QuestionScreen = () => {
               </AppText>
             </View>
           ))}
-      </ScrollView>
+      </View>
     </ImageBackground>
   );
 };
