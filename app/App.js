@@ -8,13 +8,12 @@ import WaitingCodeScreen from './view/waitingCodeScreen';
 
 const App = () => {
   return (
-    // <Provider store={store}>
-    //   <PersistGate loading={null} persistor={Pstore}>
-    //     <AppStack />
+    <Provider store={store}>
+      <PersistGate loading={null} persistor={Pstore}>
+        <AppStack />
 
-    //   </PersistGate>
-    // </Provider>
-    <WaitingCodeScreen />
+      </PersistGate>
+    </Provider>
   );
 };
 

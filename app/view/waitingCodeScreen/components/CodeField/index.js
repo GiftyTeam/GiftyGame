@@ -6,7 +6,7 @@ import {
   useBlurOnFulfill,
   useClearByFocusCell,
 } from 'react-native-confirmation-code-field';
-import styles from './styles';
+import {styles} from './styles';
 
 const CodeFieldComponent = () => {
   const [value, setValue] = useState('');
@@ -30,7 +30,6 @@ const CodeFieldComponent = () => {
       value={value}
       onChangeText={(v) => valueValidation(v)}
       cellCount={CELL_COUNT}
-      rootStyle={styles.codeFieldRoot}
       keyboardType="number-pad"
       textContentType="oneTimeCode"
       renderCell={({index, symbol, isFocused}) => (

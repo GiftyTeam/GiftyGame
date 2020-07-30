@@ -6,8 +6,12 @@ import styles from './styles';
 
 const MainScreen = ({navigation}) => {
   return (
-    <ImageBackground source={imgPath.mainBackground} style={{flex: 1}}>
-      <Text>{appLocalization.nextButton}</Text>
+    <ImageBackground
+      source={imgPath.mainBackground}
+      style={{width: '100%', height: '100%'}}>
+      <Text style={{fontFamily: 'BalooChettan2-Medium', fontSize: 50}}>
+        {appLocalization.nextButton}
+      </Text>
       <Button
         onPress={() => navigation.navigate('QuestionScreen')}
         title="go to question screen"

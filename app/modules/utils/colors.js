@@ -8,7 +8,6 @@ export const colors = {
   silver: '#C8C8C8',
   white: '#FFFFFF',
   sherpaBlue: '#014e53',
-  bostonBlue: '#3F9DB7',
   azureRadiance: '#117EEB',
   wedgewood: '#41879A',
 };

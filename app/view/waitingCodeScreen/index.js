@@ -21,7 +21,9 @@ const WaitingCodeScreen = ({navigation}) => {
         <StatusBar backgroundColor={colors.wedgewood} />
         <Image source={imgPath.logo} style={styles.logo} />
         <CodeFieldComponent />
-        <Button name={appLocalization.nextButton} isDisabled={false} />
+        <Button name={appLocalization.nextButton}
+                isDisabled={false}
+                onPress={()=>navigation.navigate('Profile')}/>
         <Timer />
       </ImageBackground>
     </TouchableWithoutFeedback>

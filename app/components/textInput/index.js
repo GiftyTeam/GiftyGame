@@ -14,7 +14,7 @@ const Input = ({
   return (
     <View>
       <TextInput
-        style={[styles.input, style]}
+        style={[styles.input,{width:isPhoneNumber?'100%':343}, style]}
         value={value}
         maxLength={isPhoneNumber ? 19 : 40}
         onChangeText={onChangeText}
