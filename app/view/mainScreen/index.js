@@ -6,13 +6,11 @@ import styles from './styles';
 
 const MainScreen = ({navigation}) => {
   return (
-    <ImageBackground
-      source={imgPath.mainBackground}
-      style={{width: '100%', height: '100%'}}>
+    <ImageBackground source={imgPath.mainBackground} style={{flex: 1}}>
       <Text>{appLocalization.nextButton}</Text>
       <Button
-        onPress={() => navigation.navigate('Profile')}
-        title="go to Profile"
+        onPress={() => navigation.navigate('QuestionScreen')}
+        title="go to question screen"
       />
     </ImageBackground>
   );

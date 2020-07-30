@@ -3,6 +3,7 @@ import {Text, View} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import styles from './styles';
 import {colors} from '../../../../modules/utils/colors';
+import AppText from '../../../../components/appText';
 
 const QuestionTimer = ({remainingTime}) => {
   return (
@@ -11,7 +12,7 @@ const QuestionTimer = ({remainingTime}) => {
       style={styles.container}
       useAngle={true}
       angle={30}>
-      <Text style={styles.textStyle}>{remainingTime + 's'}</Text>
+      <AppText style={styles.textStyle}>{remainingTime + 's'}</AppText>
     </LinearGradient>
   );
 };
