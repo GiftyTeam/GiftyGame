@@ -1,18 +1,18 @@
 import React from 'react';
-import {TouchableOpacity, Text, View} from 'react-native';
+import {Text, View} from 'react-native';
 import styles from './styles';
 import {colors} from '../../modules/utils/colors';
 
-const Button = ({name, onPress, style, isDisabled = true}) => {
+const Button = ({name, onPress, isDisabled = true}) => {
   const backgroundColor = isDisabled
     ? colors.pickledBluewood
     : colors.robinsBlue;
   return (
     <View
-      style={{...styles.btn, backgroundColor: backgroundColor, ...style}}
+      style={{...styles.button, backgroundColor}}
       onStartShouldSetResponder={onPress}
       disabled={isDisabled}>
-      <Text style={styles.btnText}>{name}</Text>
+      <Text style={styles.buttonText}>{name}</Text>
     </View>
   );
 };
