@@ -6,6 +6,7 @@ export const styles = StyleSheet.create({
     flex: 1,
     paddingHorizontal: 8,
     paddingBottom: 20,
+    width: '100%',
     justifyContent: 'center',
     alignItems: 'center',
   },
@@ -16,6 +17,7 @@ export const styles = StyleSheet.create({
     borderRadius: 20,
     paddingHorizontal: 20,
     justifyContent: 'space-around',
+    alignItems:'center'
   },
   topContainer: {
     flex: 0.3,
@@ -28,12 +30,12 @@ export const styles = StyleSheet.create({
     borderWidth: 7,
     borderColor: colors.deepSeaGreen,
     position: 'absolute',
-    left: 138,
     top: -69,
     zIndex: 1,
     backgroundColor: colors.white,
     justifyContent: 'center',
     alignItems: 'center',
+    alignSelf:'center'
   },
   uploadPhoto: {
     width: 51,

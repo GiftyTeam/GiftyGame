@@ -3,11 +3,11 @@ import {TextInput} from 'react-native';
 import {styles} from './styles';
 import React from 'react';
 
-const Input = ({value, placeholder, style, onChangeText, ...rest}) => {
+const Input = ({value, placeholder, inputStyle, onChangeText, ...rest}) => {
   return (
     <TextInput
-      style={[styles.inputText, styles.input, style]}
       placeholderTextColor={colors.silver}
+      style={[styles.input, inputStyle]}
       onChangeText={onChangeText}
       placeholder={placeholder}
       value={value}

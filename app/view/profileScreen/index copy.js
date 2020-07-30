@@ -32,10 +32,10 @@ const ProfileScreen = ({navigation}) => {
       source={imgPath.mainBackground}
       style={{width: '100%', height: '100%'}}>
       <StatusBar backgroundColor={colors.bostonBlue} />
-        {/* <KeyboardAvoidingView
-          behavior={Platform.OS == 'ios' ? 'padding' : undefined}
+      <ScrollView>
+        <KeyboardAvoidingView
+          behavior={Platform.OS == 'ios' ? 'padding' : 'height'}
           style={styles.container}>
-            <ScrollView > */}
           <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
             <View style={styles.container}>
               <View style={styles.topContainer}>
@@ -81,8 +81,8 @@ const ProfileScreen = ({navigation}) => {
               </View>
             </View>
           </TouchableWithoutFeedback>
-          {/* </ScrollView>
-        </KeyboardAvoidingView> */}
+        </KeyboardAvoidingView>
+      </ScrollView>
     </ImageBackground>
   );
 };
