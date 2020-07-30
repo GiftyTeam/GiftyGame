@@ -9,10 +9,12 @@ const MainScreen = ({navigation}) => {
     <ImageBackground
       source={imgPath.mainBackground}
       style={{width: '100%', height: '100%'}}>
-      <Text style={{fontFamily: 'BalooChettan2-Medium',fontSize:50}}>{appLocalization.nextButton}</Text>
+      <Text style={{fontFamily: 'BalooChettan2-Medium', fontSize: 50}}>
+        {appLocalization.nextButton}
+      </Text>
       <Button
-        onPress={() => navigation.navigate('Profile')}
-        title="go to Profile"
+        onPress={() => navigation.navigate('QuestionScreen')}
+        title="go to question screen"
       />
     </ImageBackground>
   );

@@ -3,24 +3,28 @@ import {StyleSheet, Platform} from 'react-native';
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingTop: Platform.OS === 'ios' ? 60 : 60,
+    paddingTop: Platform.OS === 'ios' ? 40 : 40,
   },
   innerContainer: {
-    flexGrow: 1,
-    paddingHorizontal: '5%',
+    flex: 1,
+    paddingHorizontal:'5%'
   },
-  timerContainer: {},
+  timerContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
   headerContainer: {
-    marginTop: 10,
+    flex: 1.5,
+    justifyContent: 'center',
   },
   questionContainer: {
     marginTop: 10,
+    flex: 5,
   },
   answersContainer: {
-    padding: 10,
-    marginTop: 10,
+    flex: 5,
     flexDirection: 'column',
-    justifyContent: 'space-between',
   },
   answerBoxContainer: {
     marginTop: 18,
@@ -30,6 +34,7 @@ const styles = StyleSheet.create({
     fontSize: 36,
   },
   resultContainer: {
+    flex: 1,
     marginTop: 31,
     alignSelf: 'center',
   },

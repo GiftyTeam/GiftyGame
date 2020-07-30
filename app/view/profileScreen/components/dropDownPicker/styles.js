@@ -19,13 +19,13 @@ export const styles = StyleSheet.create({
     color: colors.white,
     fontStyle: 'normal',
     lineHeight: 46,
-    fontSize: 25,
+    fontSize: 32,
   },
   pickerPlaceholder: {
     fontFamily: 'BalooChettan-Regular',
     color: colors.silver,
     fontStyle: 'normal',
     lineHeight: 46,
-    fontSize: 25,
+    fontSize: 32,
   },
 });

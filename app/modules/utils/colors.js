@@ -9,4 +9,5 @@ export const colors = {
   white: '#FFFFFF',
   sherpaBlue: '#014e53',
   azureRadiance: '#117EEB',
+  wedgewood: '#41879A',
 };

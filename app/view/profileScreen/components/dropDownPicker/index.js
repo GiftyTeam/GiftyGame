@@ -17,7 +17,7 @@ const Picker = () => {
       <DropDownPicker
         items={DATA}
         onChangeItem={(item) => setSelectedValue({['city']: item.value})}
-        containerStyle={{height: 55, width: '100%'}}
+        containerStyle={{height: 60, width: '100%'}}
         placeholderStyle={styles.pickerPlaceholder}
         selectedLabelStyle={styles.selectedLabel}
         placeholder={appLocalization.pickerTitle}

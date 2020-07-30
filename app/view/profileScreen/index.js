@@ -37,7 +37,7 @@ const ProfileScreen = ({navigation}) => {
          behavior= {(Platform.OS === 'ios')? "padding" : null}
          keyboardVerticalOffset={Platform.select({ios: 0, android: 500})}
           style={styles.container}>
-        
+
               <View style={styles.topContainer}>
                 <BackIcon navigation={navigation} style={{left: 10}} />
                 <TouchableOpacity style={styles.logout}>
@@ -71,7 +71,7 @@ const ProfileScreen = ({navigation}) => {
                 <Input placeholder={appLocalization.inputAddressPlaceholder} />
                 <Button
                   onPress={() => navigation.navigate('InstructionScreen')}
-                  buttonName={appLocalization.nextButton}
+                  name={appLocalization.nextButton}
                   style={{
                     backgroundColor: isAllDataEntered
                       ? colors.robinsBlue
