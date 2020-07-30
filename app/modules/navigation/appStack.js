@@ -5,6 +5,7 @@ import InstructionScreen from '../../view/instructionScreen';
 import ProfileScreen from '../../view/profileScreen';
 import MainStack from './mainStack';
 import React from 'react';
+import WaitingCodeScreen from '../../view/waitingCodeScreen';
 
 const Stack = createStackNavigator();
 
@@ -21,6 +22,11 @@ const AppStack = () => {
         <Stack.Screen
           name="Registration"
           component={RegistrationScreen}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="WaitingCode"
+          component={WaitingCodeScreen}
           options={{headerShown: false}}
         />
         <Stack.Screen

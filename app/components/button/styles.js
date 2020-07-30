@@ -2,7 +2,7 @@ import {StyleSheet} from 'react-native';
 import {colors} from '../../modules/utils/colors';
 
 const styles = StyleSheet.create({
-  btn: {
+  button: {
     width: '100%',
     height: 60,
     borderRadius: 18,
@@ -11,7 +11,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  btnText: {
+  buttonText: {
     fontSize: 32,
     color: 'white',
     fontFamily: 'BalooChettan-Regular',
