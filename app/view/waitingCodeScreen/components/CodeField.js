@@ -1,13 +1,12 @@
 import React, {useState} from 'react';
-import {Text, StyleSheet, Alert} from 'react-native';
-
+import {Text, Alert} from 'react-native';
 import {
   CodeField,
   Cursor,
   useBlurOnFulfill,
   useClearByFocusCell,
 } from 'react-native-confirmation-code-field';
-import {colors} from '../../../modules/utils/colors';
+import styles from './CodeFieldStyles';
 
 const CodeFieldComponent = () => {
   const [value, setValue] = useState('');
@@ -45,26 +44,5 @@ const CodeFieldComponent = () => {
     />
   );
 };
-
-const styles = StyleSheet.create({
-  cell: {
-    width: 40,
-    height: 62,
-    fontSize: 38,
-    lineHeight: 62,
-    borderWidth: 5,
-    borderRadius: 5,
-    color: 'white',
-    marginHorizontal: 10,
-    backgroundColor: colors.mosque,
-    borderColor: colors.fountainBlue,
-    textAlign: 'center',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  focusCell: {
-    borderColor: '#000',
-  },
-});
 
 export default CodeFieldComponent;
