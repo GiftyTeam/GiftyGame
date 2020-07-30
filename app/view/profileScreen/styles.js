@@ -1,5 +1,5 @@
 import {colors} from '../../modules/utils/colors';
-import {StyleSheet} from 'react-native';
+import {StyleSheet, Dimensions} from 'react-native';
 
 export const styles = StyleSheet.create({
   container: {
@@ -9,6 +9,7 @@ export const styles = StyleSheet.create({
     width: '100%',
     justifyContent: 'center',
     alignItems: 'center',
+    minHeight: Math.round(Dimensions.get('window').height) 
   },
   createProfileSection: {
     flex: 0.7,
