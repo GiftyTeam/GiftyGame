@@ -11,8 +11,8 @@ import {imgPath} from '../../modules/utils/images';
 import appLocalization from '../../localization/localization';
 import Button from '../../components/button';
 import {colors} from '../../modules/utils/colors';
-import CodeFieldComponent from './components/CodeField';
 import Timer from './components/Timer';
+import CodeFieldComponent from './components/CodeField';
 
 const WaitingCodeScreen = ({navigation}) => {
   return (

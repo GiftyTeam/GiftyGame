@@ -6,7 +6,7 @@ import {
   useBlurOnFulfill,
   useClearByFocusCell,
 } from 'react-native-confirmation-code-field';
-import styles from './CodeFieldStyles';
+import styles from './styles';
 
 const CodeFieldComponent = () => {
   const [value, setValue] = useState('');
