@@ -1,5 +1,5 @@
 import {StyleSheet} from 'react-native';
-import {colors} from '../../../modules/utils/colors'
+import {colors} from '../../../modules/utils/colors';
 export const scoreBoardStyles = StyleSheet.create({
   container: {
     height: 211,
@@ -16,6 +16,7 @@ export const scoreBoardStyles = StyleSheet.create({
   scoreBoardHeaderText: {
     fontSize: 30,
     color: colors.white,
+    fontFamily: 'BalooChettan-Regular',
   },
   Line: {
     width: '0.4%',
@@ -25,17 +26,19 @@ export const scoreBoardStyles = StyleSheet.create({
     flexDirection: 'row',
     height: 25,
     backgroundColor: colors.gray81,
-    opacity: 0.3,
+    opacity: 0.35,
   },
   flatComponent: {
     width: '49.8%',
     alignItems: 'center',
+    justifyContent: 'center',
     height: 25,
   },
   flatText: {
     fontSize: 24,
     color: colors.black,
     fontFamily: 'BalooChettan-Regular',
+    opacity:1,
   },
   botomContainer: {
     width: '50%',

@@ -8,9 +8,9 @@ export const colors = {
   silver: '#C8C8C8',
   white: '#FFFFFF',
   sherpaBlue: '#014e53',
-  bostonBlue: '#3F9DB7',
   azureRadiance: '#117EEB',
-  black:'#000000',
-  gray77:'#c4c4c4',
-  gray81:'#cfcfcf'
+  black: '#000000',
+  gray77: '#c4c4c4',
+  gray81: '#cfcfcf',
+  wedgewood: '#41879A',
 };

@@ -1,15 +1,9 @@
 import {StyleSheet} from 'react-native';
-import {colors} from '../../modules/utils/colors';
+
 
 export const buttonStyle = {
-  container: {
-    backgroundColor: colors.robinsBlue,
-    width: '85%',
-    height: 60,
-    borderRadius: 18,
-  },
   buttonView: {
-    marginTop: '30%',
+    marginTop: '20%',
     justifyContent: 'center',
     alignItems: 'center',
   },

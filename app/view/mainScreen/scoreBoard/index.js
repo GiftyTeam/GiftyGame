@@ -2,7 +2,7 @@ import React from 'react';
 import {View, Text, FlatList} from 'react-native';
 import {scoreBoardStyles} from './styles';
 import appLocalization from '../../../localization/localization';
-
+import {colors} from '../../../modules/utils/colors';
 const ScoreBoard = () => {
   const data = [
     {date: '28.06.2020', score: 500},
@@ -37,16 +37,19 @@ const ScoreBoard = () => {
           <View
             style={[
               scoreBoardStyles.flatContainer,
-              {backgroundColor: index % 2 == 0 ? '#FFFFFF' : '#CFCFCF'},
+              {backgroundColor: index % 2 == 0 ? colors.white : colors.gray81},
             ]}>
+
             <View style={scoreBoardStyles.flatComponent}>
               <Text style={scoreBoardStyles.flatText}>{item.date}</Text>
             </View>
 
             <View style={scoreBoardStyles.Line} />
+
             <View style={scoreBoardStyles.flatComponent}>
               <Text style={scoreBoardStyles.flatText}>{item.score}</Text>
             </View>
+
           </View>
         )}
       />

@@ -1,13 +1,15 @@
 import {colors} from '../../modules/utils/colors';
-import {StyleSheet} from 'react-native';
+import {StyleSheet, Dimensions} from 'react-native';
 
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
     paddingHorizontal: 8,
     paddingBottom: 20,
+    width: '100%',
     justifyContent: 'center',
     alignItems: 'center',
+    minHeight: Math.round(Dimensions.get('window').height) 
   },
   createProfileSection: {
     flex: 0.7,
@@ -16,6 +18,7 @@ export const styles = StyleSheet.create({
     borderRadius: 20,
     paddingHorizontal: 20,
     justifyContent: 'space-around',
+    alignItems:'center'
   },
   topContainer: {
     flex: 0.3,
@@ -28,12 +31,12 @@ export const styles = StyleSheet.create({
     borderWidth: 7,
     borderColor: colors.deepSeaGreen,
     position: 'absolute',
-    left: 138,
     top: -69,
     zIndex: 1,
     backgroundColor: colors.white,
     justifyContent: 'center',
     alignItems: 'center',
+    alignSelf:'center'
   },
   uploadPhoto: {
     width: 51,

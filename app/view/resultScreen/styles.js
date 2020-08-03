@@ -1,5 +1,5 @@
 import {StyleSheet} from 'react-native';
-import {colors} from '../../modules/utils/colors'
+
 export const resultScreenStyles = StyleSheet.create({
   backgroundImageStyle: {
     width: '100%',
@@ -11,15 +11,6 @@ export const resultScreenStyles = StyleSheet.create({
   },
 });
 
-export const buttonStyle = {
-  container: {
-    backgroundColor: colors.robinsBlue,
-    width: '85%',
-    height: 60,
-    borderRadius: 18,
-    marginTop: '15%',
-  },
-};
 
 export const logoStyle = StyleSheet.create({
   logoView: {

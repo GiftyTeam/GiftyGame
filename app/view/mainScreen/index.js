@@ -12,6 +12,7 @@ import DropDown from './dropDown';
 import Button from '../../components/button/index';
 import appLocalization from '../../localization/localization';
 import {buttonStyle, logoStyle} from './styles';
+import {colors} from '../../modules/utils/colors';
 
 const MainScreen = () => {
   const Modalls = () => {
@@ -27,30 +28,23 @@ const MainScreen = () => {
       <ImageBackground
         source={imgPath.mainBackground}
         style={{width: '100%', height: '100%'}}>
-        <StatusBar backgroundColor="#41879A" />
+        <StatusBar backgroundColor={colors.wedgewood} />
         <View style={{flex: 1}}>
           <View style={{marginTop: 45}}>
             <Modalls />
           </View>
 
           <View style={logoStyle.logoView}>
-            <Image
-              source={require('../../assets//images/logo.png')}
-              style={logoStyle.logo}
-            />
+            <Image source={imgPath.logo} style={logoStyle.logo} />
           </View>
 
           <View style={{marginTop: 100}}>
             <ScoreBoard />
           </View>
-          <View
-            style={{
-              marginTop: '20%',
-              justifyContent: 'center',
-              alignItems: 'center',
-            }}>
+          <View style={buttonStyle.buttonView}>
             <Button
-              buttonName={appLocalization.startGame}
+              isDisabled={false}
+              name={appLocalization.startGame}
               style={buttonStyle.container}
               onPress={() => console.log('Start Game')}
             />
