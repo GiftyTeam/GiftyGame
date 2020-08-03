@@ -23,7 +23,6 @@ const ImageSlider = () => {
         return (
             <View>
                 <Button
-                    style={{backgroundColor: colors.robinsBlue}}
                     name={appLocalization.nextButton}
                 />
             </View>
@@ -33,7 +32,7 @@ const ImageSlider = () => {
     const _renderDoneButton = () => {
         return (
             <Button
-                style={{backgroundColor: colors.robinsBlue}}
+                isDisabled={false}
                 name={appLocalization.doneButton}
             />
         );
