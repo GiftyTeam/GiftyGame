@@ -22,6 +22,7 @@ import {
   Platform,
   Keyboard,
   ScrollView,
+  SafeAreaView,
   Image,
   View,
 } from 'react-native';
@@ -74,16 +75,16 @@ const ProfileScreen = connect(mapStateToProps, {addUserCredentials})(
     };
     console.log('objectValues.includes', objectValues.includes(''));
 
-    return (
+    return ( <KeyboardAvoidingView
+           behavior={Platform.OS === "ios" ? "padding" : null}
+           style={{ flex: 1 }}>
       <ImageBackground
         source={imgPath.mainBackground}
-        style={{width: '100%', height: '100%'}}>
+        style={{width: '100%', flex: 1, justifyContent: "flex-end"}}>
         <StatusBar backgroundColor={colors.bostonBlue} />
-        <ScrollView contentContainerStyle={styles.container}>
-          <KeyboardAvoidingView
-            behavior={Platform.OS === 'ios' ? 'padding' : null}
-            keyboardVerticalOffset={Platform.select({ios: 0, android: 500})}
-            style={styles.container}>
+        {/* <ScrollView contentContainerStyle={styles.container}> */}
+         
+             <SafeAreaView style={styles.container}>
             <View style={styles.topContainer}>
               <BackIcon navigation={navigation} style={{left: 10}} />
               <TouchableOpacity style={styles.logout}>
@@ -141,9 +142,11 @@ const ProfileScreen = connect(mapStateToProps, {addUserCredentials})(
                 isDisabled={objectValues.includes('')}
               />
             </View>
-          </KeyboardAvoidingView>
-        </ScrollView>
+            </SafeAreaView>
+            <View style={{ flex : 1 }} />
+        {/* </ScrollView> */}
       </ImageBackground>
+          </KeyboardAvoidingView>
     );
   },
 );
