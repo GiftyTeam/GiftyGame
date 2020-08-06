@@ -8,7 +8,7 @@ import appLocalization from '../../../localization/localization';
 const DropDown = () => {
   const dispatch = useDispatch();
   const modalVisible = useSelector(
-    (state) => state.mainScreenReducer.modalVisible,
+    (state) => state.mainScreenData.modalVisible,
   );
 
   return (

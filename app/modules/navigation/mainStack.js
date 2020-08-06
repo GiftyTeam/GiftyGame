@@ -4,6 +4,7 @@ import {Image, TouchableOpacity} from 'react-native';
 import MainScreen from '../../view/mainScreen';
 import ResultScreen from '../../view/resultScreen';
 import QuestionScreen from '../../view/questionScreen';
+import PhotoScreen from '../../view/photoScreen'
 import {useDispatch, useSelector} from 'react-redux';
 import Icon from 'react-native-vector-icons/AntDesign';
 import {imgPath} from '../../modules/utils/images';
@@ -13,12 +14,9 @@ const Stack = createStackNavigator();
 
 const MainStack = ({navigation}) => {
   const dispatch = useDispatch();
-  const modalVisible = useSelector(
-    (state) => state.mainScreenReducer.modalVisible,
-  );
 
   return (
-    <Stack.Navigator initialRouteName="ResultScreen">
+    <Stack.Navigator initialRouteName="MainScreen">
       <Stack.Screen
         name="MainScreen"
         component={MainScreen}
@@ -69,11 +67,11 @@ const MainStack = ({navigation}) => {
           ),
         }}
       />
-      <Stack.Screen
+      {/* <Stack.Screen
         name="PhotoScreen"
         component={PhotoScreen}
         options={{headerShown: false}}
-      />
+      /> */}
     </Stack.Navigator>
   );
 };
