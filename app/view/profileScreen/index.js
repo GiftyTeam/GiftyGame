@@ -44,12 +44,12 @@ const ProfileScreen = connect(mapStateToProps, {addUserCredentials})(
     const objectValues = Object.values(fields);
 
     const handleProfilePhoto = (name) => {
-      setIsAvatarSelected(true);
       const options = {
         noData: true,
       };
       ImagePicker.launchImageLibrary(options, (response) => {
         if (response.uri) {
+          setIsAvatarSelected(true);
           setFields((fields) => ({
             ...fields,
             [name]: response,
