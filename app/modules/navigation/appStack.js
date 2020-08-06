@@ -21,13 +21,13 @@ const AppStack = () => {
           },
         }}>
         <Stack.Screen
-          name="MainStack"
-          component={MainStack}
+          name="Registration"
+          component={RegistrationScreen}
           options={{headerShown: false}}
         />
         <Stack.Screen
-          name="Registration"
-          component={RegistrationScreen}
+          name="MainStack"
+          component={MainStack}
           options={{headerShown: false}}
         />
         <Stack.Screen
@@ -35,8 +35,7 @@ const AppStack = () => {
           component={WaitingCodeScreen}
           options={{headerShown: false}}
         />
-        
-       
+
         <Stack.Screen
           options={{headerShown: false}}
           component={ProfileScreen}
@@ -46,7 +45,7 @@ const AppStack = () => {
           options={{headerShown: false}}
           component={InstructionScreen}
           name="InstructionScreen"
-        /> 
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
