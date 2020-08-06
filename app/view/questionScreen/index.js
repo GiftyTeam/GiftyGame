@@ -11,7 +11,6 @@ import styles from './styles';
 import {colors} from '../../modules/utils/colors';
 import AppText from '../../components/appText';
 
-
 const QuestionScreen = () => {
   //hooks
   const dispatch = useDispatch();
@@ -133,21 +132,18 @@ const QuestionScreen = () => {
             />
           </View>
         </View>
-
-        {showResult &&
-          (isAnswerCorrect ? (
-            <View style={styles.resultContainer}>
+        <View style={styles.resultContainer}>
+          {showResult &&
+            (isAnswerCorrect ? (
               <AppText style={styles.resultText}>
                 {appLocalization.correctResult}
               </AppText>
-            </View>
-          ) : (
-            <View style={styles.resultContainer}>
+            ) : (
               <AppText style={styles.resultText}>
                 {appLocalization.wrongResult}
               </AppText>
-            </View>
-          ))}
+            ))}
+        </View>
       </View>
     </ImageBackground>
   );
