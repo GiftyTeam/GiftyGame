@@ -1,5 +1,5 @@
 import React from 'react';
-import {Text, View} from 'react-native';
+import {Text, Pressable} from 'react-native';
 import styles from './styles';
 import {colors} from '../../modules/utils/colors';
 
@@ -8,12 +8,12 @@ const Button = ({name, onPress, isDisabled = true}) => {
     ? colors.pickledBluewood
     : colors.robinsBlue;
   return (
-    <View
+    <Pressable
       style={{...styles.button, backgroundColor}}
-      onStartShouldSetResponder={onPress}
+      onPress={onPress}
       disabled={isDisabled}>
       <Text style={styles.buttonText}>{name}</Text>
-    </View>
+    </Pressable>
   );
 };
 
