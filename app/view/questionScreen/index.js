@@ -9,6 +9,8 @@ import appLocalization from '../../localization/localization';
 import {setSelectedAnswerID} from './redux/answerAction';
 import styles from './styles';
 import {colors} from '../../modules/utils/colors';
+import AppText from '../../components/appText';
+
 
 const QuestionScreen = () => {
   //hooks
@@ -36,9 +38,6 @@ const QuestionScreen = () => {
   const [isAnswerCorrect, setIsAnswerCorrect] = useState(false);
   const [disabled, setDisabled] = useState(false);
 
-  // ref
-  const scrollView = useRef();
-
   function nextQuestion() {
     if (currentQuestion !== totalQuestions) {
       setCurrentQuestion(currentQuestion + 1);
@@ -59,9 +58,6 @@ const QuestionScreen = () => {
     if (answerID === correctAnswerID) setTotalPoints(totalPoints + 500);
     dispatch(setSelectedAnswerID(answerID));
     setTimeout(() => {
-      scrollView.current.scrollToEnd({animated: true});
-    }, 250);
-    setTimeout(() => {
       setShowResult(false);
       setIsAnswerCorrect(false);
       dispatch(setSelectedAnswerID(''));
@@ -71,10 +67,8 @@ const QuestionScreen = () => {
 
   return (
     <ImageBackground style={styles.container} source={imgPath.mainBackground}>
-      <StatusBar backgroundColor={colors.bostonBlue} />
-      <ScrollView
-        ref={scrollView}
-        contentContainerStyle={styles.innerContainer}>
+      <View style={styles.innerContainer}>
+        <StatusBar backgroundColor={colors.bostonBlue} />
         <View style={styles.timerContainer}>
           <QuestionTimer remainingTime={remainingTime} />
         </View>
@@ -86,57 +80,75 @@ const QuestionScreen = () => {
           />
         </View>
         <View style={styles.questionContainer}>
-          <Text style={styles.questionStyle}>
+          <AppText style={styles.questionStyle}>
             {questions[currentQuestion - 1].question}
-          </Text>
+          </AppText>
         </View>
-        <View>
-          <AnswerBox
-            answer={questions[currentQuestion - 1].answers[0]}
-            answerID={1}
-            disabled={disabled}
-            onPress={() => selectAnswer(1)}
-          />
+        <View style={styles.answersContainer}>
+          <View
+            style={{
+              justifyContent: 'center',
+            }}>
+            <AnswerBox
+              answer={questions[currentQuestion - 1].answers[0]}
+              answerID={1}
+              disabled={disabled}
+              onPress={() => selectAnswer(1)}
+            />
+          </View>
+          <View
+            style={{
+              justifyContent: 'center',
+              marginTop: 10,
+            }}>
+            <AnswerBox
+              answer={questions[currentQuestion - 1].answers[1]}
+              answerID={2}
+              disabled={disabled}
+              onPress={() => selectAnswer(2)}
+            />
+          </View>
+          <View
+            style={{
+              justifyContent: 'center',
+              marginTop: 10,
+            }}>
+            <AnswerBox
+              answer={questions[currentQuestion - 1].answers[2]}
+              answerID={3}
+              disabled={disabled}
+              onPress={() => selectAnswer(3)}
+            />
+          </View>
+          <View
+            style={{
+              justifyContent: 'center',
+              marginTop: 10,
+            }}>
+            <AnswerBox
+              answer={questions[currentQuestion - 1].answers[3]}
+              answerID={4}
+              disabled={disabled}
+              onPress={() => selectAnswer(4)}
+            />
+          </View>
         </View>
-        <View style={styles.answerBoxContainer}>
-          <AnswerBox
-            answer={questions[currentQuestion - 1].answers[1]}
-            answerID={2}
-            disabled={disabled}
-            onPress={() => selectAnswer(2)}
-          />
-        </View>
-        <View style={styles.answerBoxContainer}>
-          <AnswerBox
-            answer={questions[currentQuestion - 1].answers[2]}
-            answerID={3}
-            disabled={disabled}
-            onPress={() => selectAnswer(3)}
-          />
-        </View>
-        <View style={styles.answerBoxContainer}>
-          <AnswerBox
-            answer={questions[currentQuestion - 1].answers[3]}
-            answerID={4}
-            disabled={disabled}
-            onPress={() => selectAnswer(4)}
-          />
-        </View>
+
         {showResult &&
           (isAnswerCorrect ? (
             <View style={styles.resultContainer}>
-              <Text style={styles.resultText}>
+              <AppText style={styles.resultText}>
                 {appLocalization.correctResult}
-              </Text>
+              </AppText>
             </View>
           ) : (
             <View style={styles.resultContainer}>
-              <Text style={styles.resultText}>
+              <AppText style={styles.resultText}>
                 {appLocalization.wrongResult}
-              </Text>
+              </AppText>
             </View>
           ))}
-      </ScrollView>
+      </View>
     </ImageBackground>
   );
 };

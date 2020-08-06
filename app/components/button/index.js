@@ -1,13 +1,20 @@
 import React from 'react';
-import {View, Text} from 'react-native';
+import {Text, View} from 'react-native';
 import styles from './styles';
+import {colors} from '../../modules/utils/colors';
 
-const ButtonComponent = () => {
+const Button = ({name, onPress, isDisabled = true}) => {
+  const backgroundColor = isDisabled
+    ? colors.pickledBluewood
+    : colors.robinsBlue;
   return (
-    <View style={styles.mainContainer}>
-      <Text>Button</Text>
+    <View
+      style={{...styles.button, backgroundColor}}
+      onStartShouldSetResponder={onPress}
+      disabled={isDisabled}>
+      <Text style={styles.buttonText}>{name}</Text>
     </View>
   );
 };
 
-export default ButtonComponent;
+export default Button;

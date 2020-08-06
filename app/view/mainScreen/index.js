@@ -1,9 +1,10 @@
 import React from 'react';
-import {ImageBackground, Button} from 'react-native';
+import {View, Text, ImageBackground, Button} from 'react-native';
 import {imgPath} from '../../modules/utils/images';
+import appLocalization from '../../localization/localization';
 import styles from './styles';
 
-const MainScreen = (props) => {
+const MainScreen = ({navigation}) => {
   return (
     <ImageBackground source={imgPath.mainBackground} style={styles.container}>
       <Button

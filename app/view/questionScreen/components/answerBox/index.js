@@ -3,6 +3,7 @@ import {Text, TouchableOpacity} from 'react-native';
 import styles from './styles';
 import {colors} from '../../../../modules/utils/colors';
 import CheckBox from '../checkBox';
+import AppText from '../../../../components/appText';
 
 const AnswerBox = ({answer, onPress, disabled, selectedAnswer, answerID}) => {
   return (
@@ -11,7 +12,7 @@ const AnswerBox = ({answer, onPress, disabled, selectedAnswer, answerID}) => {
       disabled={disabled}
       onPress={onPress}
       style={styles.container}>
-      <Text style={styles.answerText}>{answer}</Text>
+      <AppText style={styles.answerText}>{answer}</AppText>
       <CheckBox answerID={answerID} disabled={disabled} onPress={onPress} />
     </TouchableOpacity>
   );
