@@ -1,18 +1,21 @@
 import {StyleSheet} from 'react-native';
 
-
-export const buttonStyle = {
-  buttonView: {
-    marginTop: '20%',
-    justifyContent: 'center',
-    alignItems: 'center',
+export const resultScreenStyles = StyleSheet.create({
+  backgroundImageStyle: {
+    width: '100%',
+    height: '100%',
   },
-};
+  container: {
+    alignItems: 'center',
+    flex: 1,
+  },
+});
+
 
 export const logoStyle = StyleSheet.create({
   logoView: {
     alignItems: 'center',
-    marginTop: 40,
+    marginTop: 158,
   },
   logo: {
     height: 100,
