@@ -15,8 +15,18 @@ import Button from '../../components/button';
 import {colors} from '../../modules/utils/colors';
 import Timer from './components/Timer';
 import CodeFieldComponent from './components/CodeField';
+import {connect} from 'react-redux';
+import {selectIsCodeValidate} from './redux/codeValidation';
 
-const WaitingCodeScreen = ({navigation}) => {
+const mapStateToProps = (state) => ({
+  isValidated: selectIsCodeValidate(state),
+});
+
+const WaitingCodeScreen = connect(
+  mapStateToProps,
+  null,
+)(({navigation, isValidated}) => {
+  console.log('isvalidated', isValidated);
   return (
     <KeyboardAvoidingView
       behavior={Platform.OS === 'ios' ? 'padding' : null}
@@ -30,7 +40,7 @@ const WaitingCodeScreen = ({navigation}) => {
           <CodeFieldComponent />
           <Button
             name={appLocalization.nextButton}
-            isDisabled={false}
+            isDisabled={!isValidated}
             onPress={() => navigation.navigate('Profile')}
           />
           <Timer />
@@ -39,5 +49,5 @@ const WaitingCodeScreen = ({navigation}) => {
       </TouchableWithoutFeedback>
     </KeyboardAvoidingView>
   );
-};
+});
 export default WaitingCodeScreen;

@@ -1,4 +1,4 @@
-import {StyleSheet, Dimensions} from 'react-native';
+import {StyleSheet} from 'react-native';
 import {colors} from '../../modules/utils/colors';
 
 const styles = StyleSheet.create({
@@ -20,16 +20,12 @@ const styles = StyleSheet.create({
     borderRadius: 18,
     borderWidth: 5,
     paddingHorizontal: 15,
+    paddingVertical: 2,
     borderColor: colors.fountainBlue,
-    justifyContent: 'center',
-    alignItems: 'center',
-    fontFamily: 'BalooChettan-Regular',
+    fontFamily: 'BalooCh+ettan-Regular',
     color: colors.white,
-    fontSize: 32,
-    height: 60,
+    fontSize: 30,
   },
-
-  inputText: {},
 });
 
 export default styles;
