@@ -23,7 +23,7 @@ const Header = ({totalQuestions, currentQuestion, totalPoints}) => {
             </AppText>
           </AppText>
         </View>
-          <AppText style={styles.pointTextStyle}>{totalPoints}</AppText>
+        <AppText style={styles.pointTextStyle}>{totalPoints}</AppText>
       </View>
       <DashedLine style={styles.dashStyle} />
     </View>
