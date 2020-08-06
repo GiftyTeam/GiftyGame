@@ -1,4 +1,5 @@
 export const colors = {
+  nobel: '#B6B6B6',
   pickledBluewood: '#2c3e50',
   fountainBlue: '#67b1ca',
   deepSeaGreen: '#075368',

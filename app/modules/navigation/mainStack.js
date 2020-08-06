@@ -69,6 +69,11 @@ const MainStack = ({navigation}) => {
           ),
         }}
       />
+      <Stack.Screen
+        name="PhotoScreen"
+        component={PhotoScreen}
+        options={{headerShown: false}}
+      />
     </Stack.Navigator>
   );
 };
