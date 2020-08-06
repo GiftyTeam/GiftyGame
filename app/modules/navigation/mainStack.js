@@ -2,7 +2,7 @@ import React from 'react';
 import {createStackNavigator, HeaderBackButton} from '@react-navigation/stack';
 import MainScreen from '../../view/mainScreen';
 import QuestionScreen from '../../view/questionScreen';
-import Icon from 'react-native-vector-icons/AntDesign';
+import PhotoScreen from '../../view/photoScreen';
 
 const Stack = createStackNavigator();
 
@@ -27,6 +27,11 @@ const MainStack = ({navigation}) => {
             />
           ),
         }}
+      />
+      <Stack.Screen
+        name="PhotoScreen"
+        component={PhotoScreen}
+        options={{headerShown: false}}
       />
     </Stack.Navigator>
   );
