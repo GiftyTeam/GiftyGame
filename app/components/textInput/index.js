@@ -18,7 +18,6 @@ const scrollOnFocus =() => {
     setTimeout(() => {
        ScrollRef.current?.scrollTo({y:230});
     }, 500);
-  console.log('Focused----->')
 }
 
   return (
