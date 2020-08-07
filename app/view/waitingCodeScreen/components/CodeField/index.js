@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {Text, Alert, Dimensions} from 'react-native';
+import {Text, Alert} from 'react-native';
 import {
   CodeField,
   Cursor,
@@ -18,12 +18,11 @@ const CodeFieldComponent = connect(null, {setCodeValidated})(
         Alert.alert('Please enter correct OTP');
       } else {
         setValue(value);
-        setCodeValidated(true);
+        codeValidation();
       }
     };
-
-    const codeValidation = () =>
-      value.length === 6 ? setCodeValidated(true) : null;
+    const codeValidation = () => console.log('value lenght', value.length);
+    value.length === 6 ? setCodeValidated(true) : null;
     const ref = useBlurOnFulfill({value, cellCount: CELL_COUNT});
     const [props, getCellOnLayoutHandler] = useClearByFocusCell({
       value,

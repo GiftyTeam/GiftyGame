@@ -16,38 +16,40 @@ import {colors} from '../../modules/utils/colors';
 import Timer from './components/Timer';
 import CodeFieldComponent from './components/CodeField';
 import {connect} from 'react-redux';
-import {selectIsCodeValidate} from './redux/codeValidation';
+import {selectIsCodeValidate, setCodeValidated} from './redux/codeValidation';
 
 const mapStateToProps = (state) => ({
   isValidated: selectIsCodeValidate(state),
 });
 
-const WaitingCodeScreen = connect(
-  mapStateToProps,
-  null,
-)(({navigation, isValidated}) => {
-  console.log('isvalidated', isValidated);
-  return (
-    <KeyboardAvoidingView
-      behavior={Platform.OS === 'ios' ? 'padding' : null}
-      style={{flex: 1}}>
-      <TouchableWithoutFeedback onPress={Keyboard.dismiss()}>
-        <ImageBackground
-          source={imgPath.mainBackground}
-          style={styles.container}>
-          <StatusBar backgroundColor={colors.wedgewood} />
-          <Image source={imgPath.logo} style={styles.logo} />
-          <CodeFieldComponent />
-          <Button
-            name={appLocalization.nextButton}
-            isDisabled={!isValidated}
-            onPress={() => navigation.navigate('Profile')}
-          />
-          <Timer />
-          <View style={{flex: 1}} />
-        </ImageBackground>
-      </TouchableWithoutFeedback>
-    </KeyboardAvoidingView>
-  );
-});
+const WaitingCodeScreen = connect(mapStateToProps, {setCodeValidated})(
+  ({navigation, isValidated, setCodeValidated}) => {
+    return (
+      <KeyboardAvoidingView
+        behavior={Platform.OS === 'ios' ? 'padding' : null}
+        style={{flex: 1}}>
+        <TouchableWithoutFeedback onPress={Keyboard.dismiss()}>
+          <ImageBackground
+            source={imgPath.mainBackground}
+            style={styles.container}>
+            <StatusBar backgroundColor={colors.wedgewood} />
+            <Image source={imgPath.logo} style={styles.logo} />
+            <CodeFieldComponent />
+            <Button
+              name={appLocalization.nextButton}
+              isDisabled={!isValidated}
+              onPress={() => {
+                navigation.navigate('Profile');
+                setCodeValidated(false);
+              }}
+            />
+
+            <Timer />
+            <View style={{flex: 1}} />
+          </ImageBackground>
+        </TouchableWithoutFeedback>
+      </KeyboardAvoidingView>
+    );
+  },
+);
 export default WaitingCodeScreen;
