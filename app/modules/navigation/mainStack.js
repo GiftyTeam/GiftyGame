@@ -10,12 +10,12 @@ const MainStack = ({navigation}) => {
   return (
     <Stack.Navigator>
       <Stack.Screen
-        name="MainScreen"
+        name="Main"
         component={MainScreen}
         options={{headerShown: false}}
       />
       <Stack.Screen
-        name="QuestionScreen"
+        name="Question"
         component={QuestionScreen}
         options={{
           headerTransparent: true,
@@ -23,13 +23,13 @@ const MainStack = ({navigation}) => {
           headerLeft: () => (
             <HeaderBackButton
               tintColor="white"
-              onPress={() => navigation.replace('MainScreen')}
+              onPress={() => navigation.replace('Main')}
             />
           ),
         }}
       />
       <Stack.Screen
-        name="PhotoScreen"
+        name="Photo"
         component={PhotoScreen}
         options={{headerShown: false}}
       />

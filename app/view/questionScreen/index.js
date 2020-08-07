@@ -1,5 +1,5 @@
-import React, {useState, useRef} from 'react';
-import {ImageBackground, Text, View, ScrollView, StatusBar} from 'react-native';
+import React, {useState} from 'react';
+import {ImageBackground, View, StatusBar} from 'react-native';
 import {useDispatch} from 'react-redux';
 import {imgPath} from '../../modules/utils/images';
 import QuestionTimer from './components/timer';

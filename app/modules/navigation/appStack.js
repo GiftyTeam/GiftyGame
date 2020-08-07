@@ -42,7 +42,7 @@ const AppStack = () => {
         <Stack.Screen
           options={{headerShown: false}}
           component={InstructionScreen}
-          name="InstructionScreen"
+          name="Instruction"
         />
       </Stack.Navigator>
     </NavigationContainer>

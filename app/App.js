@@ -11,7 +11,6 @@ const App = () => {
     <Provider store={store}>
       <PersistGate loading={null} persistor={Pstore}>
         <AppStack />
-
       </PersistGate>
     </Provider>
   );
