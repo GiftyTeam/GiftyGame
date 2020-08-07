@@ -11,7 +11,6 @@ export const mainScreenReducer = (state = initialState, action) => {
         ...state,
         modalVisible: action.payload,
       };
-
     default:
       return state;
   }

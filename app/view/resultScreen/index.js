@@ -15,14 +15,20 @@ const ResultScreen = () => {
       source={imgPath.mainBackground}
       style={resultScreenStyles.backgroundImageStyle}>
       <StatusBar backgroundColor={colors.wedgewood} />
-      <View style={logoStyle.logoView}>
-        <Image source={imgPath.logo} style={logoStyle.logo} />
-      </View>
-      <View style={resultScreenStyles.container}>
-        <ScoreComponent />
-        <Description />
-        <InfoText />
-        <Button name={appLocalization.contunueGame} isDisabled={false} />
+      <View style={{flex: 1}}>
+        <View style={logoStyle.logoView}>
+          <Image source={imgPath.logo} style={logoStyle.logo} />
+        </View>
+
+        <View style={resultScreenStyles.container}>
+          <ScoreComponent />
+          <Description />
+          <InfoText />
+        </View>
+
+        <View style={resultScreenStyles.buttonView}>
+          <Button name={appLocalization.contunueGame} isDisabled={false} />
+        </View>
       </View>
     </ImageBackground>
   );

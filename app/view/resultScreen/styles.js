@@ -7,15 +7,19 @@ export const resultScreenStyles = StyleSheet.create({
   },
   container: {
     alignItems: 'center',
-    flex: 1,
+    flex: 5,
+  },
+  buttonView: {
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 });
 
-
 export const logoStyle = StyleSheet.create({
   logoView: {
+    flex: 4,
     alignItems: 'center',
-    marginTop: 158,
+    justifyContent: 'center',
   },
   logo: {
     height: 100,

@@ -3,7 +3,7 @@ import {StyleSheet} from 'react-native';
 
 export const buttonStyle = {
   buttonView: {
-    marginTop: '20%',
+    flex: 2,
     justifyContent: 'center',
     alignItems: 'center',
   },
@@ -11,8 +11,10 @@ export const buttonStyle = {
 
 export const logoStyle = StyleSheet.create({
   logoView: {
+    flex:2,
     alignItems: 'center',
-    marginTop: 40,
+    justifyContent:'center'
+    
   },
   logo: {
     height: 100,
