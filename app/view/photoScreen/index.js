@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {ImageBackground, Text, StatusBar, View} from 'react-native';
+import {ImageBackground, StatusBar, View} from 'react-native';
 import styles from './style';
 import {colors} from '../../modules/utils/colors';
 import Timer from './components/timer';

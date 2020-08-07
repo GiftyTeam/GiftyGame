@@ -5,9 +5,10 @@ import {waitingCodeReducer} from '../../view/waitingCodeScreen/redux/codeValidat
 import {profileReducer} from '../../view/profileScreen/redux/profileReducer';
 
 const rootReducer = combineReducers({
-  // mainScreenData: mainScreenReducer,
   // answerData: answerReducer,
   codeValidation: waitingCodeReducer,
+  mainScreenData: mainScreenReducer,
+  answerReducer,
   userCredentials: profileReducer,
 });
 
