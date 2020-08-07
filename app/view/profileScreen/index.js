@@ -3,7 +3,7 @@ import {DATA} from '../../../__mocks__/dropDownPickerData';
 import {getUserCredentials} from './redux/profileReducer';
 import {addUserCredentials} from './redux/profileAction';
 import Icon from 'react-native-vector-icons/Feather';
-import ImagePicker from 'react-native-image-picker';
+// import ImagePicker from 'react-native-image-picker';
 import {imgPath} from '../../modules/utils/images';
 import {colors} from '../../modules/utils/colors';
 import Picker from './components/dropDownPicker';
@@ -43,20 +43,20 @@ const ProfileScreen = connect(mapStateToProps, {addUserCredentials})(
     });
     const objectValues = Object.values(fields);
 
-    const handleProfilePhoto = (name) => {
-      setIsAvatarSelected(true);
-      const options = {
-        noData: true,
-      };
-      ImagePicker.launchImageLibrary(options, (response) => {
-        if (response.uri) {
-          setFields((fields) => ({
-            ...fields,
-            [name]: response,
-          }));
-        }
-      });
-    };
+    // const handleProfilePhoto = (name) => {
+    //   setIsAvatarSelected(true);
+    //   const options = {
+    //     noData: true,
+    //   };
+    //   ImagePicker.launchImageLibrary(options, (response) => {
+    //     if (response.uri) {
+    //       setFields((fields) => ({
+    //         ...fields,
+    //         [name]: response,
+    //       }));
+    //     }
+    //   });
+    // };
 
     const handleFields = (name, value) => {
       setFields((fields) => ({
@@ -75,16 +75,17 @@ const ProfileScreen = connect(mapStateToProps, {addUserCredentials})(
     };
     console.log('objectValues.includes', objectValues.includes(''));
 
-    return ( <KeyboardAvoidingView
-           behavior={Platform.OS === "ios" ? "padding" : null}
-           style={{ flex: 1 }}>
-      <ImageBackground
-        source={imgPath.mainBackground}
-        style={{width: '100%', flex: 1, justifyContent: "flex-end"}}>
-        <StatusBar backgroundColor={colors.bostonBlue} />
-        {/* <ScrollView contentContainerStyle={styles.container}> */}
-         
-             <SafeAreaView style={styles.container}>
+    return (
+      <KeyboardAvoidingView
+        behavior={Platform.OS === 'ios' ? 'padding' : null}
+        style={{flex: 1}}>
+        <ImageBackground
+          source={imgPath.mainBackground}
+          style={{width: '100%', flex: 1, justifyContent: 'flex-end'}}>
+          <StatusBar backgroundColor={colors.bostonBlue} />
+          {/* <ScrollView contentContainerStyle={styles.container}> */}
+
+          <SafeAreaView style={styles.container}>
             <View style={styles.topContainer}>
               <BackIcon navigation={navigation} style={{left: 10}} />
               <TouchableOpacity style={styles.logout}>
@@ -94,7 +95,8 @@ const ProfileScreen = connect(mapStateToProps, {addUserCredentials})(
             <View style={styles.createProfileSection}>
               <View style={styles.avatarContainer}>
                 <TouchableWithoutFeedback
-                  onPress={() => handleProfilePhoto('avatar')}>
+                // onPress={() => handleProfilePhoto('avatar')}
+                >
                   {isAvatarSelected ? (
                     <Image
                       style={{width: 125, height: 125, borderRadius: 125 / 2}}
@@ -142,11 +144,11 @@ const ProfileScreen = connect(mapStateToProps, {addUserCredentials})(
                 isDisabled={objectValues.includes('')}
               />
             </View>
-            </SafeAreaView>
-            <View style={{ flex : 1 }} />
-        {/* </ScrollView> */}
-      </ImageBackground>
-          </KeyboardAvoidingView>
+          </SafeAreaView>
+          <View style={{flex: 1}} />
+          {/* </ScrollView> */}
+        </ImageBackground>
+      </KeyboardAvoidingView>
     );
   },
 );
