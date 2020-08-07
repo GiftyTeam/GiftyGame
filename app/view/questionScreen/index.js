@@ -11,7 +11,7 @@ import styles from './styles';
 import {colors} from '../../modules/utils/colors';
 import AppText from '../../components/appText';
 
-const QuestionScreen = () => {
+const QuestionScreen = ({navigation}) => {
   //hooks
   const dispatch = useDispatch();
 
@@ -43,6 +43,7 @@ const QuestionScreen = () => {
       setDisabled(false);
     } else {
       // go to result screen
+      navigation.navigate('Result')
     }
   }
 

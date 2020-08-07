@@ -22,7 +22,7 @@ const appLocalization = new LocalizedStrings({
     trueAnswer: 'Düzgün Cavablar :',
     wrongAnswer: 'Səhv Cavablar :',
     startGame: 'Oyuna Başla',
-    contunueGame: 'Davam et',
+    continue: 'Davam et',
   },
   en: {
     appName: 'Gifty',
@@ -33,6 +33,8 @@ const appLocalization = new LocalizedStrings({
     inputSurnamePlaceholder: 'Surname',
     inputAddressPlaceholder: 'Address',
     question: 'Question',
+    correctResult: 'Correct!',
+    wrongResult: 'Wrong!',
     date: 'Date',
     scores: 'Scores',
     score: 'Score',
@@ -43,9 +45,7 @@ const appLocalization = new LocalizedStrings({
     trueAnswer: 'True Answers :',
     wrongAnswer: 'Wrong Answers :',
     startGame: 'Start Game',
-    contunueGame: 'Contunue',
-    correctResult: 'Correct!',
-    wrongResult: 'Wrong!',
+    continue: 'Continue',
   },
 });
 
