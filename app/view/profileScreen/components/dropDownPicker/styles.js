@@ -12,6 +12,7 @@ export const styles = StyleSheet.create({
     borderTopLeftRadius: 18,
     alignItems: 'center',
     borderWidth: 5,
+    marginBottom: 10,
   },
   selectedLabel: {
     fontFamily: 'BalooChettan-Regular',

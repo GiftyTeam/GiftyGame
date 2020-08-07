@@ -1,16 +1,12 @@
 import React from 'react';
-import {createStackNavigator, HeaderBackButton} from '@react-navigation/stack';
-import {Image, TouchableOpacity} from 'react-native';
-import MainScreen from '../../view/mainScreen';
-import ResultScreen from '../../view/resultScreen';
-import QuestionScreen from '../../view/questionScreen';
-import PhotoScreen from '../../view/photoScreen';
-import {useDispatch, useSelector} from 'react-redux';
-import Icon from 'react-native-vector-icons/AntDesign';
-import {imgPath} from '../../modules/utils/images';
-import {ModalVisible} from '../../view/mainScreen/redux/changeAction';
+import {createStackNavigator} from '@react-navigation/stack';
+import WaitingCodeScreen from '../../view/waitingCodeScreen';
+import InstructionScreen from '../../view/instructionScreen';
+import RegistrationScreen from '../../view/registrationScreen';
+ 
 
 const Stack = createStackNavigator();
+
 
 const RegistrationStack = () => {
 
