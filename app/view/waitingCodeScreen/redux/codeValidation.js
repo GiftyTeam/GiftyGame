@@ -25,7 +25,6 @@ export const waitingCodeReducer = (state = initialState, {type, payload}) => {
         ...state,
         isCodeValidated: payload,
       };
-
     default:
       return state;
   }

@@ -3,7 +3,7 @@ import {DATA} from '../../../__mocks__/dropDownPickerData';
 import {getUserCredentials} from './redux/profileReducer';
 import {addUserCredentials} from './redux/profileAction';
 import Icon from 'react-native-vector-icons/Feather';
-// import ImagePicker from 'react-native-image-picker';
+import ImagePicker from 'react-native-image-picker';
 import {imgPath} from '../../modules/utils/images';
 import {colors} from '../../modules/utils/colors';
 import Picker from './components/dropDownPicker';
@@ -43,20 +43,20 @@ const ProfileScreen = connect(mapStateToProps, {addUserCredentials})(
     });
     const objectValues = Object.values(fields);
 
-    // const handleProfilePhoto = (name) => {
-    //   setIsAvatarSelected(true);
-    //   const options = {
-    //     noData: true,
-    //   };
-    //   ImagePicker.launchImageLibrary(options, (response) => {
-    //     if (response.uri) {
-    //       setFields((fields) => ({
-    //         ...fields,
-    //         [name]: response,
-    //       }));
-    //     }
-    //   });
-    // };
+    const handleProfilePhoto = (name) => {
+      setIsAvatarSelected(true);
+      const options = {
+        noData: true,
+      };
+      ImagePicker.launchImageLibrary(options, (response) => {
+        if (response.uri) {
+          setFields((fields) => ({
+            ...fields,
+            [name]: response,
+          }));
+        }
+      });
+    };
 
     const handleFields = (name, value) => {
       setFields((fields) => ({
@@ -76,41 +76,30 @@ const ProfileScreen = connect(mapStateToProps, {addUserCredentials})(
     console.log('objectValues.includes', objectValues.includes(''));
 
     return (
-      <KeyboardAvoidingView
-        behavior={Platform.OS === 'ios' ? 'padding' : null}
-        style={{flex: 1}}>
-        <ImageBackground
-          source={imgPath.mainBackground}
-          style={{width: '100%', flex: 1, justifyContent: 'flex-end'}}>
-          <StatusBar backgroundColor={colors.bostonBlue} />
-          {/* <ScrollView contentContainerStyle={styles.container}> */}
-
-          <SafeAreaView style={styles.container}>
-            <View style={styles.topContainer}>
-              <BackIcon navigation={navigation} style={{left: 10}} />
-              <TouchableOpacity style={styles.logout}>
+      <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : null} style={{flex: 1}} >
+                    <SafeAreaView style={{flex:1}}>
+                    <StatusBar backgroundColor={colors.bostonBlue} />
+        <ImageBackground source={imgPath.mainBackground} style={styles.imageBackground}>
+        <View style={styles.topContainer}>
+              <View>
+              <BackIcon navigation={navigation} />
+              </View>
+              <TouchableOpacity>
                 <Icon name={'log-out'} size={30} color={colors.white} />
               </TouchableOpacity>
-            </View>
+              </View>
+              <View style ={styles.container}>
             <View style={styles.createProfileSection}>
               <View style={styles.avatarContainer}>
                 <TouchableWithoutFeedback
-                // onPress={() => handleProfilePhoto('avatar')}
+                onPress={() => handleProfilePhoto('avatar')}
                 >
-                  {isAvatarSelected ? (
-                    <Image
-                      style={{width: 125, height: 125, borderRadius: 125 / 2}}
-                      source={fields.avatar}
-                    />
-                  ) : (
-                    <Image
-                      source={imgPath.uploadPhoto}
-                      style={styles.uploadPhoto}
-                    />
-                  )}
+                  {isAvatarSelected 
+                 ? <Image style={{width: 125, height: 125, borderRadius: 125 / 2}} source={fields.avatar}/>
+                 : <Image source={imgPath.uploadPhoto} style={styles.uploadPhoto}/>
+                }
                 </TouchableWithoutFeedback>
               </View>
-              <View style={{flex: 0.35}}></View>
               <Input
                 value={isAllDataEntered ? userCredentials.name : fields.name}
                 onChangeText={(value) => handleFields('name', value)}
@@ -143,11 +132,10 @@ const ProfileScreen = connect(mapStateToProps, {addUserCredentials})(
                 name={appLocalization.nextButton}
                 isDisabled={objectValues.includes('')}
               />
-            </View>
-          </SafeAreaView>
-          <View style={{flex: 1}} />
-          {/* </ScrollView> */}
+              </View>
+              </View>
         </ImageBackground>
+        </SafeAreaView>
       </KeyboardAvoidingView>
     );
   },

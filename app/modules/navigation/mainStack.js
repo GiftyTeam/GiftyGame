@@ -1,18 +1,17 @@
 import React from 'react';
-import {createStackNavigator, HeaderBackButton} from '@react-navigation/stack';
-import {Image, TouchableOpacity} from 'react-native';
+import { createStackNavigator, HeaderBackButton } from '@react-navigation/stack';
+import { Image, TouchableOpacity } from 'react-native';
 import MainScreen from '../../view/mainScreen';
 import ResultScreen from '../../view/resultScreen';
 import QuestionScreen from '../../view/questionScreen';
 import PhotoScreen from '../../view/photoScreen';
-import {useDispatch, useSelector} from 'react-redux';
-import Icon from 'react-native-vector-icons/AntDesign';
-import {imgPath} from '../../modules/utils/images';
-import {ModalVisible} from '../../view/mainScreen/redux/changeAction';
+import { useDispatch } from 'react-redux';
+import { imgPath } from '../../modules/utils/images';
+import { ModalVisible } from '../../view/mainScreen/redux/changeAction';
 
 const Stack = createStackNavigator();
 
-const MainStack = ({navigation}) => {
+const MainStack = ({ navigation }) => {
   const dispatch = useDispatch();
 
   return (
@@ -27,7 +26,7 @@ const MainStack = ({navigation}) => {
             <TouchableOpacity onPress={() => dispatch(ModalVisible(true))}>
               <Image
                 source={imgPath.moreButtonHeader}
-                style={{height: 30, width: 30, marginRight: 5}}
+                style={{ height: 30, width: 30, marginRight: 5 }}
               />
             </TouchableOpacity>
           ),
@@ -70,7 +69,7 @@ const MainStack = ({navigation}) => {
       <Stack.Screen
         name="Photo"
         component={PhotoScreen}
-        options={{headerShown: false}}
+        options={{ headerShown: false }}
       />
     </Stack.Navigator>
   );
