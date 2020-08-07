@@ -10,6 +10,7 @@ export const resultScreenStyles = StyleSheet.create({
     flex: 5,
   },
   buttonView: {
+    flex: 3,
     justifyContent: 'center',
     alignItems: 'center',
   },
