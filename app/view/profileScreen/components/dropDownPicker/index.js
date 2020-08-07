@@ -1,27 +1,23 @@
 import appLocalization from '../../../../localization/localization';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
-import {DATA} from '../../../../../__mocks__/dropDownPickerData';
 import DropDownPicker from 'react-native-dropdown-picker';
 import {colors} from '../../../../modules/utils/colors';
 import React, {useState} from 'react';
-import {View} from 'react-native';
+import {View,Dimensions} from 'react-native';
 import {styles} from './styles';
 
-const Picker = () => {
-  const [selectedValue, setSelectedValue] = useState({
-    city: '',
-  });
-
+const Picker = ({onChangeItem, defaultValue,data}) => {
+ 
   return (
     <View>
       <DropDownPicker
-        items={DATA}
-        onChangeItem={(item) => setSelectedValue({['city']: item.value})}
-        containerStyle={{height: 60, width: '100%'}}
+        items={data}
+        onChangeItem={onChangeItem}
+        containerStyle={{height: 60, width: Math.round(Dimensions.get('window').width-73) }}
         placeholderStyle={styles.pickerPlaceholder}
         selectedLabelStyle={styles.selectedLabel}
         placeholder={appLocalization.pickerTitle}
-        defaultValue={selectedValue.city}
+        defaultValue={defaultValue}
         itemStyle={{
           justifyContent: 'flex-start',
         }}
