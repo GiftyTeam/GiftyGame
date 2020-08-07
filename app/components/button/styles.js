@@ -6,7 +6,7 @@ const styles = StyleSheet.create({
     height: 60,
     borderRadius: 18,
     backgroundColor: colors.pickledBluewood,
-    marginTop: 15,
+    marginTop: 5,
     alignItems: 'center',
     alignSelf:'stretch',
     justifyContent: 'center',

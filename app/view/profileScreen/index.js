@@ -10,7 +10,7 @@ import Picker from './components/dropDownPicker';
 import BackIcon from '../../components/backIcon';
 import Input from '../../components/textInput';
 import Button from '../../components/button';
-import React, {useState} from 'react';
+import React, {useState, useRef,useEffect} from 'react';
 import {connect} from 'react-redux';
 import {styles} from './styles';
 import {
@@ -33,6 +33,7 @@ const ProfileScreen = connect(mapStateToProps, {addUserCredentials})(
   ({navigation, userCredentials, addUserCredentials}) => {
     const [isAvatarSelected, setIsAvatarSelected] = useState(false);
     const [isAllDataEntered, setIsAllDataEntered] = useState(false);
+    const ScrollRef = useRef(null);
     const [fields, setFields] = useState({
       userId: Math.random(100),
       name: '',
@@ -76,10 +77,11 @@ const ProfileScreen = connect(mapStateToProps, {addUserCredentials})(
     console.log('objectValues.includes', objectValues.includes(''));
 
     return (
-      <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : null} style={{flex: 1}} >
+      <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : null} style={{flex: 1}}>
                     <SafeAreaView style={{flex:1}}>
                     <StatusBar backgroundColor={colors.bostonBlue} />
         <ImageBackground source={imgPath.mainBackground} style={styles.imageBackground}>
+        <ScrollView ref ={ScrollRef}  showsVerticalScrollIndicator={false}>
         <View style={styles.topContainer}>
               <View>
               <BackIcon navigation={navigation} />
@@ -101,11 +103,13 @@ const ProfileScreen = connect(mapStateToProps, {addUserCredentials})(
                 </TouchableWithoutFeedback>
               </View>
               <Input
+              {...{ScrollRef}}
                 value={isAllDataEntered ? userCredentials.name : fields.name}
                 onChangeText={(value) => handleFields('name', value)}
                 placeholder={appLocalization.inputNamePlaceholder}
               />
               <Input
+              {...{ScrollRef}}
                 value={
                   isAllDataEntered ? userCredentials.surname : fields.surname
                 }
@@ -118,6 +122,7 @@ const ProfileScreen = connect(mapStateToProps, {addUserCredentials})(
                 onChangeItem={(value) => handleFields('city', value.value)}
               />
               <Input
+              {...{ScrollRef}}
                 editable={
                   typeof editable !== 'undefined' ? editable : isAllDataEntered
                 }
@@ -134,6 +139,7 @@ const ProfileScreen = connect(mapStateToProps, {addUserCredentials})(
               />
               </View>
               </View>
+              </ScrollView>
         </ImageBackground>
         </SafeAreaView>
       </KeyboardAvoidingView>
