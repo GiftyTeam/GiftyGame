@@ -1,30 +1,32 @@
-import React from 'react';
+import React,{forwardRef} from 'react';
 import {View, TextInput,Dimensions} from 'react-native';
 import styles from './styles';
 import {colors} from '../../modules/utils/colors';
 
-const Input = ({
-  placeholder,
-  style,
-  value,
-  onChangeText,
-  isPhoneNumber = false,
-  ...rest
-}) => {
+const Input = forwardRef((props, ref)=> {
   return (
     <View>
       <TextInput
-        style={[styles.input,{width:isPhoneNumber?'100%':Math.round(Dimensions.get('window').width-73) }, style]}
-        value={value}
-        maxLength={isPhoneNumber ? 19 : 40}
-        onChangeText={onChangeText}
-        keyboardType={isPhoneNumber ? 'phone-pad' : 'default'}
-        placeholder={placeholder}
+        ref={ref}
+        style={[styles.input,{width:props.isPhoneNumber?'100%':Math.round(Dimensions.get('window').width-73) }, props.style]}
+        value={props.value}
+        maxLength={props.isPhoneNumber ? 19 : 40}
+        onChangeText={props.onChangeText}
+        keyboardType={props.isPhoneNumber ? 'phone-pad' : 'default'}
+        placeholder={props.placeholder}
         placeholderTextColor={colors.silver}
-        rest={rest}
+        onFocus={props.onFocus}
       />
     </View>
   );
-};
+});
 
 export default Input;
+// ({
+//   placeholder,
+//   style,
+//   value,
+//   onChangeText,
+//   isPhoneNumber = false,
+//   ...rest
+// }) 

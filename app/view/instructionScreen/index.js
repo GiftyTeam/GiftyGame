@@ -16,9 +16,10 @@ const InstructionScreen = ({navigation}) => {
         <View style={{flex: 0.1}}>
           <BackIcon navigation={navigation} />
         </View>
-        <View style={{flex: 0.9}}>
-          <ImageSlider />
+        <View style={{flex: 0.78}}>
+          <ImageSlider navigation={navigation} />
         </View>
+        <View style={{flex: 0.12}}></View>
       </View>
     </ImageBackground>
   );

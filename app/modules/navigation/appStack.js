@@ -21,13 +21,13 @@ const AppStack = () => {
           },
         }}>
         <Stack.Screen
-          name="MainStack"
-          component={MainStack}
+          name="Registration"
+          component={RegistrationScreen}
           options={{headerShown: false}}
         />
         <Stack.Screen
-          name="Registration"
-          component={RegistrationScreen}
+          name="MainStack"
+          component={MainStack}
           options={{headerShown: false}}
         />
         <Stack.Screen

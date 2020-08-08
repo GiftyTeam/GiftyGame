@@ -10,7 +10,7 @@ import Picker from './components/dropDownPicker';
 import BackIcon from '../../components/backIcon';
 import Input from '../../components/textInput';
 import Button from '../../components/button';
-import React, {useState} from 'react';
+import React, {useState, createRef} from 'react';
 import {connect} from 'react-redux';
 import {styles} from './styles';
 import {
@@ -20,7 +20,6 @@ import {
   ImageBackground,
   StatusBar,
   Platform,
-  Keyboard,
   ScrollView,
   SafeAreaView,
   Image,
@@ -42,7 +41,8 @@ const ProfileScreen = connect(mapStateToProps, {addUserCredentials})(
       avatar: '',
     });
     const objectValues = Object.values(fields);
-
+    const inputRef = createRef();
+    const myScrollView = createRef();
     const handleProfilePhoto = (name) => {
       const options = {
         noData: true,
@@ -64,6 +64,17 @@ const ProfileScreen = connect(mapStateToProps, {addUserCredentials})(
         [name]: value,
       }));
     };
+    const handleScroll = () => {
+      inputRef.current.isFocused();
+      const scrollResponder = inputRef.myScrollView.getScrollResponder();
+      const inputHandle = findNodeHandle(inputRef);
+
+      scrollResponder.scrollResponderScrollNativeHandleToKeyboard(
+        inputHandle, // The TextInput node handle
+        0, // The scroll view's bottom "contentInset" (default 0)
+        true, // Prevent negative scrolling
+      );
+    };
     const handleNextButton = () => {
       setIsAllDataEntered(true);
       addUserCredentials(fields);
@@ -75,78 +86,85 @@ const ProfileScreen = connect(mapStateToProps, {addUserCredentials})(
     };
     console.log('objectValues.includes', objectValues.includes(''));
 
-    return ( <KeyboardAvoidingView
-           behavior={Platform.OS === "ios" ? "padding" : null}
-           style={{ flex: 1 }}>
-      <ImageBackground
-        source={imgPath.mainBackground}
-        style={{width: '100%', flex: 1, justifyContent: "flex-end"}}>
-        <StatusBar backgroundColor={colors.bostonBlue} />
-        {/* <ScrollView contentContainerStyle={styles.container}> */}
-         
-             <SafeAreaView style={styles.container}>
-            <View style={styles.topContainer}>
-              <BackIcon navigation={navigation} style={{left: 10}} />
-              <TouchableOpacity style={styles.logout}>
-                <Icon name={'log-out'} size={30} color={colors.white} />
-              </TouchableOpacity>
-            </View>
-            <View style={styles.createProfileSection}>
-              <View style={styles.avatarContainer}>
-                <TouchableWithoutFeedback
-                  onPress={() => handleProfilePhoto('avatar')}>
-                  {isAvatarSelected ? (
-                    <Image
-                      style={{width: 125, height: 125, borderRadius: 125 / 2}}
-                      source={fields.avatar}
-                    />
-                  ) : (
-                    <Image
-                      source={imgPath.uploadPhoto}
-                      style={styles.uploadPhoto}
-                    />
-                  )}
-                </TouchableWithoutFeedback>
+    return (
+      <KeyboardAvoidingView
+        behavior={Platform.OS === 'ios' ? 'padding' : null}
+        style={{flex: 1}}>
+        <ImageBackground
+          source={imgPath.mainBackground}
+          style={{width: '100%', flex: 1, justifyContent: 'flex-end'}}>
+          <StatusBar backgroundColor={colors.bostonBlue} />
+          <View style={styles.topContainer}>
+            <BackIcon navigation={navigation} style={{left: 10}} />
+            <TouchableOpacity style={styles.logout}>
+              <Icon name={'log-out'} size={30} color={colors.white} />
+            </TouchableOpacity>
+          </View>
+          <SafeAreaView style={styles.container}>
+            <ScrollView
+              ref={myScrollView}
+              contentContainerStyle={styles.container}
+              keyboardShouldPersistTaps="handled">
+              <View style={styles.createProfileSection}>
+                <View style={styles.avatarContainer}>
+                  <TouchableWithoutFeedback
+                    onPress={() => handleProfilePhoto('avatar')}>
+                    {isAvatarSelected ? (
+                      <Image
+                        style={{width: 125, height: 125, borderRadius: 125 / 2}}
+                        source={fields.avatar}
+                      />
+                    ) : (
+                      <Image
+                        source={imgPath.uploadPhoto}
+                        style={styles.uploadPhoto}
+                      />
+                    )}
+                  </TouchableWithoutFeedback>
+                </View>
+                <View style={{flex: 0.35}}></View>
+                <Input
+                  ref={inputRef}
+                  onFocus={() => handleScroll()}
+                  value={isAllDataEntered ? userCredentials.name : fields.name}
+                  onChangeText={(value) => handleFields('name', value)}
+                  placeholder={appLocalization.inputNamePlaceholder}
+                />
+                <Input
+                  value={
+                    isAllDataEntered ? userCredentials.surname : fields.surname
+                  }
+                  onChangeText={(value) => handleFields('surname', value)}
+                  placeholder={appLocalization.inputSurnamePlaceholder}
+                />
+                <Picker
+                  data={DATA}
+                  defaultValue={fields.city}
+                  onChangeItem={(value) => handleFields('city', value.value)}
+                />
+                <Input
+                  editable={
+                    typeof editable !== 'undefined'
+                      ? editable
+                      : isAllDataEntered
+                  }
+                  value={
+                    isAllDataEntered ? userCredentials.address : fields.address
+                  }
+                  onChangeText={(value) => handleFields('address', value)}
+                  placeholder={appLocalization.inputAddressPlaceholder}
+                />
+                <Button
+                  onPress={() => handleNextButton()}
+                  name={appLocalization.nextButton}
+                  isDisabled={objectValues.includes('')}
+                />
               </View>
-              <View style={{flex: 0.35}}></View>
-              <Input
-                value={isAllDataEntered ? userCredentials.name : fields.name}
-                onChangeText={(value) => handleFields('name', value)}
-                placeholder={appLocalization.inputNamePlaceholder}
-              />
-              <Input
-                value={
-                  isAllDataEntered ? userCredentials.surname : fields.surname
-                }
-                onChangeText={(value) => handleFields('surname', value)}
-                placeholder={appLocalization.inputSurnamePlaceholder}
-              />
-              <Picker
-                data={DATA}
-                defaultValue={fields.city}
-                onChangeItem={(value) => handleFields('city', value.value)}
-              />
-              <Input
-                editable={
-                  typeof editable !== 'undefined' ? editable : isAllDataEntered
-                }
-                value={
-                  isAllDataEntered ? userCredentials.address : fields.address
-                }
-                onChangeText={(value) => handleFields('address', value)}
-                placeholder={appLocalization.inputAddressPlaceholder}
-              />
-              <Button
-                onPress={() => handleNextButton()}
-                name={appLocalization.nextButton}
-                isDisabled={objectValues.includes('')}
-              />
-            </View>
-            </SafeAreaView>
-            <View style={{ flex : 1 }} />
-        {/* </ScrollView> */}
-      </ImageBackground>
-          </KeyboardAvoidingView>
+            </ScrollView>
+            <View style={{flex: 1}} />
+          </SafeAreaView>
+        </ImageBackground>
+      </KeyboardAvoidingView>
     );
   },
 );

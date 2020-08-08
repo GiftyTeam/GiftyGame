@@ -34,7 +34,7 @@ const MainStack = ({navigation}) => {
           headerLeft: () => (
             <HeaderBackButton
               tintColor="white"
-              onPress={() => navigation.replace('MainScreen')}
+              onPress={() => navigation.goBack()}
             />
           ),
         }}
@@ -48,7 +48,7 @@ const MainStack = ({navigation}) => {
           headerLeft: () => (
             <HeaderBackButton
               tintColor="white"
-              onPress={() => navigation.replace('MainScreen')}
+              onPress={() => navigation.goBack()}
             />
           ),
         }}

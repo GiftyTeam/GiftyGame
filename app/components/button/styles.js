@@ -3,7 +3,7 @@ import {colors} from '../../modules/utils/colors';
 
 const styles = StyleSheet.create({
   button: {
-    width: '90%',
+    width: '100%',
     height: 60,
     borderRadius: 18,
     backgroundColor: colors.pickledBluewood,
