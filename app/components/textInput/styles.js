@@ -4,6 +4,8 @@ import {colors} from '../../modules/utils/colors';
 const styles = StyleSheet.create({
     input: {
         height: 60,
+        marginBottom:10,
+        padding:0,
         backgroundColor: colors.mosque,
         borderRadius: 18,
         borderWidth: 5,

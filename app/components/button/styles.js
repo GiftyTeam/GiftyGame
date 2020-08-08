@@ -3,12 +3,12 @@ import {colors} from '../../modules/utils/colors';
 
 const styles = StyleSheet.create({
   button: {
-    width: '100%',
     height: 60,
     borderRadius: 18,
     backgroundColor: colors.pickledBluewood,
-    marginTop: 15,
+    marginTop: 5,
     alignItems: 'center',
+    alignSelf:'stretch',
     justifyContent: 'center',
   },
   buttonText: {

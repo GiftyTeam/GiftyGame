@@ -1,5 +1,5 @@
-import React, {useState, useRef} from 'react';
-import {ImageBackground, Text, View, ScrollView, StatusBar} from 'react-native';
+import React, {useState} from 'react';
+import {ImageBackground, View, StatusBar} from 'react-native';
 import {useDispatch} from 'react-redux';
 import {imgPath} from '../../modules/utils/images';
 import QuestionTimer from './components/timer';
@@ -11,8 +11,7 @@ import styles from './styles';
 import {colors} from '../../modules/utils/colors';
 import AppText from '../../components/appText';
 
-
-const QuestionScreen = () => {
+const QuestionScreen = ({navigation}) => {
   //hooks
   const dispatch = useDispatch();
 
@@ -44,6 +43,7 @@ const QuestionScreen = () => {
       setDisabled(false);
     } else {
       // go to result screen
+      navigation.navigate('Result')
     }
   }
 
@@ -133,21 +133,18 @@ const QuestionScreen = () => {
             />
           </View>
         </View>
-
-        {showResult &&
-          (isAnswerCorrect ? (
-            <View style={styles.resultContainer}>
+        <View style={styles.resultContainer}>
+          {showResult &&
+            (isAnswerCorrect ? (
               <AppText style={styles.resultText}>
                 {appLocalization.correctResult}
               </AppText>
-            </View>
-          ) : (
-            <View style={styles.resultContainer}>
+            ) : (
               <AppText style={styles.resultText}>
                 {appLocalization.wrongResult}
               </AppText>
-            </View>
-          ))}
+            ))}
+        </View>
       </View>
     </ImageBackground>
   );

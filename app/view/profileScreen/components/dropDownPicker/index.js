@@ -13,7 +13,7 @@ const Picker = ({onChangeItem, defaultValue,data}) => {
       <DropDownPicker
         items={data}
         onChangeItem={onChangeItem}
-        containerStyle={{height: 60, width: Math.round(Dimensions.get('window').width-73) }}
+        containerStyle={{height: 70, width: Math.round(Dimensions.get('window').width-73) }}
         placeholderStyle={styles.pickerPlaceholder}
         selectedLabelStyle={styles.selectedLabel}
         placeholder={appLocalization.pickerTitle}
