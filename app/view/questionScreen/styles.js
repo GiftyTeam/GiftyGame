@@ -7,7 +7,8 @@ const styles = StyleSheet.create({
   },
   innerContainer: {
     flex: 1,
-    paddingHorizontal:'5%'
+    paddingHorizontal: '5%',
+    paddingBottom: 10,
   },
   timerContainer: {
     flex: 1,

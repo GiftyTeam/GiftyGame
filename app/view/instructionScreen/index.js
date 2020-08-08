@@ -1,10 +1,10 @@
+import React from 'react';
 import {ImageBackground, StatusBar, View} from 'react-native';
 import ImageSlider from './components/imageSlider';
 import {imgPath} from '../../modules/utils/images';
 import {colors} from '../../modules/utils/colors';
 import BackIcon from '../../components/backIcon';
 import {styles} from './styles';
-import React from 'react';
 
 const InstructionScreen = ({navigation}) => {
   return (

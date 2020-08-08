@@ -1,18 +1,24 @@
-import {StyleSheet, Dimensions} from 'react-native';
-import {colors} from '../../modules/utils/colors';
+import { StyleSheet } from 'react-native';
+import { colors } from '../../modules/utils/colors';
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingHorizontal: 27,
-    justifyContent: 'flex-end',
   },
   logo: {
     width: 156,
     height: 129,
-    alignSelf: 'center',
-    marginBottom: 90,
-    marginTop: 130,
+    alignSelf:'center'
+
+  },
+  imageBackground: {
+    width: '100%',
+    height: '100%',
+    justifyContent: 'space-evenly',
+  },
+  inputContainer: {
+    paddingHorizontal: 27,
+    alignItems: 'center',
   },
   input: {
     height: 60,
@@ -20,16 +26,13 @@ const styles = StyleSheet.create({
     borderRadius: 18,
     borderWidth: 5,
     paddingHorizontal: 15,
+    paddingVertical: 2,
+    alignSelf: 'stretch',
     borderColor: colors.fountainBlue,
-    justifyContent: 'center',
-    alignItems: 'center',
-    fontFamily: 'BalooChettan-Regular',
+    fontFamily: 'BalooCh+ettan-Regular',
     color: colors.white,
-    fontSize: 32,
-    height: 60,
+    fontSize: 30,
   },
-
-  inputText: {},
 });
 
 export default styles;

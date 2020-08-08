@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import styles from './styles';
-import {View, ImagePropTypes, Text} from 'react-native';
+import {View} from 'react-native';
 
 const DashedLine = ({style}) => {
   const [length, setLength] = useState(0);
