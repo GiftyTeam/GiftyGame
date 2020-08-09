@@ -15,7 +15,7 @@ const MainStack = ({navigation}) => {
   const dispatch = useDispatch();
 
   return (
-    <Stack.Navigator initialRouteName="MainScreen">
+    <Stack.Navigator initialRouteName="ResultScreen">
       <Stack.Screen
         name="Main"
         component={MainScreen}

@@ -10,14 +10,14 @@ const Description = () => {
         <Text style={descriptionStyle.componentText}>
           {appLocalization.trueAnswer}
         </Text>
-        <Text style={descriptionStyle.componentText}>8</Text>
+        <Text style={descriptionStyle.componentText}>12</Text>
       </View>
 
       <View style={descriptionStyle.component}>
         <Text style={descriptionStyle.componentText}>
           {appLocalization.wrongAnswer}
         </Text>
-        <Text style={descriptionStyle.componentText}>4</Text>
+        <Text style={descriptionStyle.componentText}>12</Text>
       </View>
     </View>
   );

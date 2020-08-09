@@ -1,6 +1,11 @@
 import {StyleSheet} from 'react-native';
 import {colors} from '../../../modules/utils/colors';
 export const scoreBoardStyles = StyleSheet.create({
+  scoreView: {
+    flex: 5,
+    justifyContent:'center',
+    alignItems:'center',
+  },
   container: {
     height: 211,
   },
@@ -38,7 +43,7 @@ export const scoreBoardStyles = StyleSheet.create({
     fontSize: 24,
     color: colors.black,
     fontFamily: 'BalooChettan-Regular',
-    opacity:1,
+    opacity: 1,
   },
   botomContainer: {
     width: '50%',

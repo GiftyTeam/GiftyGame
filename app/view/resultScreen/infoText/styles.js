@@ -7,7 +7,7 @@ export const infoTextStyle = StyleSheet.create({
     height: 52,
     width: 141,
     alignItems: 'center',
-    marginTop: 68,
+    justifyContent:'center'
   },
   infoText: {
     fontSize: 36,

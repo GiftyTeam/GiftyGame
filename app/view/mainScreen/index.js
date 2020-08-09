@@ -30,17 +30,18 @@ const MainScreen = ({navigation}) => {
         style={{width: '100%', height: '100%'}}>
         <StatusBar backgroundColor={colors.wedgewood} />
         <View style={{flex: 1}}>
-          <View style={{marginTop: 45}}>
-            <Modalls />
-          </View>
+          <Modalls />
 
           <View style={logoStyle.logoView}>
             <Image source={imgPath.logo} style={logoStyle.logo} />
           </View>
 
-          <View style={{marginTop: 100}}>
-            <ScoreBoard />
+          <View style={{flex:3}}>
+          <ScoreBoard />
           </View>
+            
+          
+
           <View style={buttonStyle.buttonView}>
             <Button
               isDisabled={false}
