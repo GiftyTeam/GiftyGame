@@ -7,8 +7,7 @@ export const scoreStyle = StyleSheet.create({
     height: 52,
     width: 141,
     alignItems: 'center',
-    marginTop: 29,
-    justifyContent: 'space-between',
+    justifyContent: 'center',
   },
   scoreText: {
     fontSize: 36,
