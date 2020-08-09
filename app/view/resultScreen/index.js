@@ -22,7 +22,7 @@ const ResultScreen = () => {
         <ScoreComponent />
         <Description />
         <InfoText />
-        <Button name={appLocalization.contunueGame} isDisabled={false} />
+        <Button name={appLocalization.contunue} isDisabled={false} />
       </View>
     </ImageBackground>
   );

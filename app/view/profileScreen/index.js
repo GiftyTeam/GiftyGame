@@ -10,7 +10,7 @@ import Picker from './components/dropDownPicker';
 import BackIcon from '../../components/backIcon';
 import Input from '../../components/textInput';
 import Button from '../../components/button';
-import React, {useState, useRef,useEffect} from 'react';
+import React, {useState, useRef} from 'react';
 import {connect} from 'react-redux';
 import {styles} from './styles';
 import {
@@ -42,8 +42,6 @@ const ProfileScreen = connect(mapStateToProps, {addUserCredentials})(
       avatar: '',
     });
     const objectValues = Object.values(fields);
-    const inputRef = createRef();
-    const myScrollView = createRef();
     const handleProfilePhoto = (name) => {
       const options = {
         noData: true,

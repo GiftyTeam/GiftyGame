@@ -8,7 +8,7 @@ const styles = StyleSheet.create({
     backgroundColor: colors.pickledBluewood,
     marginTop: 5,
     alignItems: 'center',
-    alignSelf:'stretch',
+    alignSelf: 'stretch',
     justifyContent: 'center',
   },
   buttonText: {

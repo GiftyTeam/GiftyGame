@@ -4,6 +4,8 @@ import {createStackNavigator} from '@react-navigation/stack';
 import ProfileScreen from '../../view/profileScreen';
 import MainStack from './mainStack';
 import RegistrationStack from './registrationStack';
+import RegistrationScreen from '../../view/registrationScreen';
+import InstructionScreen from '../../view/instructionScreen';
 
 const Stack = createStackNavigator();
 
@@ -29,10 +31,20 @@ const AppStack = () => {
           component={RegistrationStack}
           options={{headerShown: false}}
         />
+         <Stack.Screen
+          name="MainStack"
+          component={MainStack}
+          options={{headerShown: false}}
+        />
         <Stack.Screen
           options={{headerShown: false}}
           component={ProfileScreen}
           name="Profile"
+        />
+        <Stack.Screen
+          options={{headerShown: false}}
+          component={InstructionScreen}
+          name="InstructionScreen"
         />
       </Stack.Navigator>
     </NavigationContainer>
