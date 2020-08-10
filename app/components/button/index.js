@@ -3,7 +3,7 @@ import {Text, Pressable} from 'react-native';
 import styles from './styles';
 import {colors} from '../../modules/utils/colors';
 
-const Button = ({name, onPress, isDisabled = true}) => {
+const Button = ({name, onPress, isDisabled = true, ref}) => {
   const backgroundColor = isDisabled
     ? colors.pickledBluewood
     : colors.robinsBlue;
@@ -11,7 +11,8 @@ const Button = ({name, onPress, isDisabled = true}) => {
     <Pressable
       style={{...styles.button, backgroundColor}}
       onPress={onPress}
-      disabled={isDisabled}>
+      disabled={isDisabled}
+      ref={ref}>
       <Text style={styles.buttonText}>{name}</Text>
     </Pressable>
   );
