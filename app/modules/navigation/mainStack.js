@@ -1,5 +1,5 @@
 import React from 'react';
-import {createStackNavigator, HeaderBackButton} from '@react-navigation/stack';
+import {createStackNavigator} from '@react-navigation/stack';
 import {Image, TouchableOpacity} from 'react-native';
 import MainScreen from '../../view/mainScreen';
 import ResultScreen from '../../view/resultScreen';
@@ -30,41 +30,19 @@ const MainStack = ({navigation}) => {
               />
             </TouchableOpacity>
           ),
-          headerLeft: () => (
-            <HeaderBackButton
-              tintColor="white"
-              onPress={() => navigation.replace('Main')}
-            />
-          ),
         }}
       />
       <Stack.Screen
         name="Result"
         component={ResultScreen}
-        options={{
-          headerTransparent: true,
-          headerTitle: '',
-          headerLeft: () => (
-            <HeaderBackButton
-              tintColor="white"
-              onPress={() => navigation.replace('Main')}
-            />
-          ),
-        }}
+        options={{headerShown: false}}
+
       />
       <Stack.Screen
         name="Question"
         component={QuestionScreen}
-        options={{
-          headerTransparent: true,
-          headerTitle: '',
-          headerLeft: () => (
-            <HeaderBackButton
-              tintColor="white"
-              onPress={() => navigation.replace('Main')}
-            />
-          ),
-        }}
+        options={{headerShown: false}}
+
       />
       <Stack.Screen
         name="Photo"

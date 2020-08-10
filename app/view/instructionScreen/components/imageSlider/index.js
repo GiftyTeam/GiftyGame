@@ -35,7 +35,7 @@ const ImageSlider = ({navigation}) => {
         buttonStyle={{marginTop: 0}}
         isDisabled={false}
         name={appLocalization.doneButton}
-        onPress={navigation.navigate('MainStack')}
+        onPress={()=>navigation.navigate('MainStack')}
       />
     );
   };
