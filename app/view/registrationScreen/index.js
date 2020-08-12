@@ -7,25 +7,22 @@ import {
   KeyboardAvoidingView,
   View,
 } from 'react-native';
-import firebase from 'react-native-firebase';
 import {imgPath} from '../../modules/utils/images';
 import appLocalization from '../../localization/localization';
 import Button from '../../components/button';
 import {colors} from '../../modules/utils/colors';
 import styles from './styles';
 import TextInputMask from 'react-native-text-input-mask';
-import {signIn} from './firebase/registrationFirebase';
+import {phoneSignIn} from './firebasePhoneAuth/firebasePhoneAuth';
 
 const RegistrationScreen = ({navigation}) => {
   const [inputValue, setInputValue] = useState('');
   const phoneRef = useRef(null);
-  const signInButtonRef = useRef('');
   const REGX = /^[\+][9][9][4]\s[(](50|51|77|70|55|99)[)]\s\d{3}[-]\d{2}[-]\d{2}/;
   const validateNumber = () => {
     if (REGX.test(inputValue)) {
-      signIn(inputValue);
+      phoneSignIn(inputValue, navigation.navigate('WaitingCode'));
       console.log('signIN clicked');
-      // navigation.navigate('WaitingCode');
     } else {
       Alert.alert('Not correct phone number');
     }
@@ -60,7 +57,6 @@ const RegistrationScreen = ({navigation}) => {
             name={appLocalization.nextButton}
             isDisabled={DISABLED}
             onPress={validateNumber}
-            ref={signInButtonRef}
           />
         </View>
       </ImageBackground>
