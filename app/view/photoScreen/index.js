@@ -4,7 +4,7 @@ import styles from './style';
 import {colors} from '../../modules/utils/colors';
 import Timer from './components/timer';
 
-function PhotoScreen() {
+function PhotoScreen({navigation}) {
   const [image, setImage] = useState({
     src: 'https://az.all.biz/img/az/catalog/11077.png',
     timer: 10,
@@ -24,6 +24,7 @@ function PhotoScreen() {
       timer = setInterval(() => {
         if (remaining > 0) setRemaining(remaining - 0.1);
         else {
+          navigation.navigate('Question')
           //do smth
           clearInterval(timer);
         }

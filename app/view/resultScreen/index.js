@@ -9,7 +9,7 @@ import Button from '../../components/button/index';
 import appLocalization from '../../localization/localization';
 import {colors} from '../../modules/utils/colors';
 
-const ResultScreen = () => {
+const ResultScreen = ({navigation}) => {
   return (
     <ImageBackground
       source={imgPath.mainBackground}
@@ -27,7 +27,11 @@ const ResultScreen = () => {
         </View>
 
         <View style={resultScreenStyles.buttonView}>
-          <Button name={appLocalization.contunueGame} isDisabled={false} />
+          <Button
+            onPress={() => navigation.navigate('Main')}
+            name={appLocalization.continue}
+            isDisabled={false}
+          />
         </View>
       </View>
     </ImageBackground>
