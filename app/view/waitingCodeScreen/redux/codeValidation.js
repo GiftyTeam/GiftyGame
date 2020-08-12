@@ -1,7 +1,5 @@
-const MODULE_NAME = 'codeValidation';
-
 export const selectIsCodeValidate = (state) =>
-  state[MODULE_NAME].isCodeValidated;
+state.waitingCodeReducer.isCodeValidated;
 
 const CODE_VALIDATION = 'CODE_VALIDATION';
 
@@ -17,7 +15,10 @@ const initialState = {
 
 console.log('Initialstate', initialState);
 
-export const waitingCodeReducer = (state = initialState, {type, payload}) => {
+export default function waitingCodeReducer(
+  state = initialState,
+  {type, payload},
+) {
   console.log('state', state);
   switch (type) {
     case CODE_VALIDATION:
@@ -28,4 +29,4 @@ export const waitingCodeReducer = (state = initialState, {type, payload}) => {
     default:
       return state;
   }
-};
+}

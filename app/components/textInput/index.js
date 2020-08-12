@@ -9,8 +9,7 @@ const Input = ({
   value,
   onChangeText,
   isPhoneNumber = false,
-  ScrollRef,
-  ...rest
+  ScrollRef
 }) => {
 
 
@@ -31,7 +30,7 @@ const scrollOnFocus =() => {
         placeholder={placeholder}
         placeholderTextColor={colors.silver}
         onFocus={scrollOnFocus}
-        rest={rest}
+        // editable={false}
       />
     </View>
   );

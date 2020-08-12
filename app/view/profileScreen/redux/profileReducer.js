@@ -1,23 +1,22 @@
 import {ADD_USER_CREDENTIALS} from './constants';
 
-const MODULE_NAME = 'userCredentials';
-export const getUserCredentials = (state) => state[MODULE_NAME].userCredentials;
+export const getUserCredentials = (state) => state.profileReducer.userExtraData;
 
 const initialState = {
-  userCredentials: {},
+  userExtraData: {},
 };
 
-export function profileReducer(state = initialState, {type, payload}) {
+export default function profileReducer(state = initialState, {type, payload}) {
   switch (type) {
     case ADD_USER_CREDENTIALS:
       return {
         ...state,
-        userCredentials: {
-          userId: payload.userId,
-          name: payload.name,
-          surname: payload.surname,
-          address: payload.address,
+        userExtraData: {
+          phoneNumber:payload.phoneNumber,
+          firstName: payload.firstName,
+          lastName: payload.lastName,
           city: payload.city,
+          street: payload.street,
           avatar: payload.avatar,
         },
       };
