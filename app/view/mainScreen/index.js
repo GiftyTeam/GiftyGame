@@ -14,7 +14,7 @@ import appLocalization from '../../localization/localization';
 import {buttonStyle, logoStyle} from './styles';
 import {colors} from '../../modules/utils/colors';
 
-const MainScreen = () => {
+const MainScreen = ({navigation}) => {
   const Modalls = () => {
     return (
       <View style={{marginTop: 45}}>
@@ -47,7 +47,7 @@ const MainScreen = () => {
               isDisabled={false}
               name={appLocalization.startGame}
               style={buttonStyle.container}
-              onPress={() => console.log('Start Game')}
+              onPress={()=>navigation.navigate('Photo')}
             />
           </View>
         </View>

@@ -7,7 +7,6 @@ import ImagePicker from 'react-native-image-picker';
 import {imgPath} from '../../modules/utils/images';
 import {colors} from '../../modules/utils/colors';
 import Picker from './components/dropDownPicker';
-import BackIcon from '../../components/backIcon';
 import Input from '../../components/textInput';
 import Button from '../../components/button';
 import {connect} from 'react-redux';
