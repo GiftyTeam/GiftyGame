@@ -12,10 +12,9 @@ const styles = StyleSheet.create({
         borderColor: colors.fountainBlue,
         fontSize: 32,
         paddingHorizontal: 20,
+        paddingVertical:2,
         fontFamily: 'BalooChettan-Regular',
         color: colors.white,
-        justifyContent: 'center',
-        alignItems: 'center',
         lineHeight: 46,
     },
 });
