@@ -7,6 +7,7 @@ import {
   TouchableWithoutFeedback,
   KeyboardAvoidingView,
   View,
+  Alert,
 } from 'react-native';
 import styles from './styles';
 import {imgPath} from '../../modules/utils/images';
@@ -16,14 +17,32 @@ import {colors} from '../../modules/utils/colors';
 import Timer from './components/Timer';
 import CodeFieldComponent from './components/CodeField';
 import {connect} from 'react-redux';
-import {selectIsCodeValidate, setCodeValidated} from './redux/codeValidation';
+import {
+  selectIsCodeValidate,
+  setCodeValidated,
+  selectConfirmCode,
+  selectEnteredCode,
+} from './redux/codeValidation';
 
 const mapStateToProps = (state) => ({
   isValidated: selectIsCodeValidate(state),
+  confirm: selectConfirmCode(state),
+  code: selectEnteredCode(state),
 });
 
 const WaitingCodeScreen = connect(mapStateToProps, {setCodeValidated})(
-  ({navigation, isValidated, setCodeValidated}) => {
+  ({navigation, isValidated, setCodeValidated, confirm, code}) => {
+    console.log('code is ', code);
+    const confirmCode = async (code) => {
+      try {
+        await confirm.confirm(code);
+        navigation.navigate('Profile');
+      } catch (error) {
+        console.log('Invalid code.', error);
+        Alert.alert('invalid code', error);
+      }
+    };
+
     return (
       <KeyboardAvoidingView
         behavior={Platform.OS === 'ios' ? 'padding' : null}
@@ -39,7 +58,7 @@ const WaitingCodeScreen = connect(mapStateToProps, {setCodeValidated})(
               name={appLocalization.nextButton}
               isDisabled={!isValidated}
               onPress={() => {
-                navigation.navigate('Profile');
+                confirmCode(code);
                 setCodeValidated(false);
               }}
             />

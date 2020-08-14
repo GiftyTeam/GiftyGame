@@ -1,9 +1,9 @@
 import React, {useState} from 'react';
 import {Button, TextInput, Alert} from 'react-native';
 import auth from '@react-native-firebase/auth';
-const [confirm, setConfirm] = useState(null);
 
 export const phoneSignIn = (phoneNumber, navigateToCodeScreen) => {
+  const [confirm, setConfirm] = useState(null);
   async function signInWithPhoneNumber(phoneNumber) {
     const confirmation = await auth().signInWithPhoneNumber(phoneNumber);
     console.log('confirmation', confirmation);
@@ -11,8 +11,9 @@ export const phoneSignIn = (phoneNumber, navigateToCodeScreen) => {
   }
 
   if (!confirm) {
-    Alert.alert('SMS not sent');
+    console.log('SMS not sent');
   } else {
+    console.log('SMS sent!!!!!');
     navigateToCodeScreen;
   }
 };

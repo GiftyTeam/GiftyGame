@@ -8,21 +8,21 @@ import {
 } from 'react-native-confirmation-code-field';
 import {styles} from './styles';
 import {connect} from 'react-redux';
-import {setCodeValidated} from '../../redux/codeValidation';
+import {setCodeValidated, setEnteredCode} from '../../redux/codeValidation';
 
-const CodeFieldComponent = connect(null, {setCodeValidated})(
-  ({setCodeValidated}) => {
+const CodeFieldComponent = connect(null, {setCodeValidated, setEnteredCode})(
+  ({setCodeValidated, setEnteredCode}) => {
     const [value, setValue] = useState('');
     const valueValidation = (value) => {
       if (isNaN(value)) {
         Alert.alert('Please enter correct OTP');
       } else {
         setValue(value);
-        codeValidation();
+        setEnteredCode(value);
       }
     };
-    const codeValidation = () => console.log('value lenght', value.length);
     value.length === 6 ? setCodeValidated(true) : null;
+
     const ref = useBlurOnFulfill({value, cellCount: CELL_COUNT});
     const [props, getCellOnLayoutHandler] = useClearByFocusCell({
       value,
