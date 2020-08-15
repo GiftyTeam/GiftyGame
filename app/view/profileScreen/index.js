@@ -11,11 +11,7 @@ import Input from '../../components/textInput';
 import Button from '../../components/button';
 import {connect} from 'react-redux';
 import {styles} from './styles';
-import {
-  addUserCredentials,
-  getUserData,
-  addNewUser,
-} from './redux/profileAction';
+import {addUserCredentials} from './redux/profileAction';
 import {
   TouchableWithoutFeedback,
   KeyboardAvoidingView,
@@ -28,14 +24,15 @@ import {
   Image,
   View,
 } from 'react-native';
+import {fetchAPI} from '../../modules/API';
 const mapStateToProps = (state) => ({
   userCredentials: getUserCredentials(state),
 });
+
 const ProfileScreen = connect(mapStateToProps, {
   addUserCredentials,
-  getUserData,
-  addNewUser,
-})(({navigation, userCredentials, getUserData, addNewUser}) => {
+  addUserCredentials,
+})(({navigation, userCredentials, addUserCredentials}) => {
   const [isAvatarSelected, setIsAvatarSelected] = useState(false);
   const [isAllDataEntered, setIsAllDataEntered] = useState(false);
   const ScrollRef = useRef(null);
@@ -47,7 +44,6 @@ const ProfileScreen = connect(mapStateToProps, {
     avatar: '',
   });
   const objectValues = Object.values(fields);
-
   const handleProfilePhoto = (name) => {
     setIsAvatarSelected(true);
     const options = {
@@ -71,14 +67,11 @@ const ProfileScreen = connect(mapStateToProps, {
   };
   const handleNextButton = () => {
     setIsAllDataEntered(true);
-    addNewUser(fields);
-    if (!objectValues.includes('')) {
-      navigation.navigate('InstructionScreen');
-    }
+    addUserCredentials(fields);
+    fetchAPI({...userCredentials, usedQuestions: []});
+    navigation.navigate('InstructionScreen');
   };
-  useEffect(() => {
-    getUserData();
-  }, []);
+
   return (
     <KeyboardAvoidingView
       behavior={Platform.OS === 'ios' ? 'padding' : null}
@@ -90,12 +83,12 @@ const ProfileScreen = connect(mapStateToProps, {
           style={styles.imageBackground}>
           <ScrollView ref={ScrollRef} showsVerticalScrollIndicator={false}>
             <View style={styles.topContainer}>
-              <View>
-                <BackIcon navigation={navigation} />
-              </View>
-              <TouchableOpacity>
-                <Icon name={'log-out'} size={30} color={colors.white} />
-              </TouchableOpacity>
+              <View></View>
+              {isAllDataEntered ? (
+                <TouchableOpacity>
+                  <Icon name={'log-out'} size={30} color={colors.white} />
+                </TouchableOpacity>
+              ) : null}
             </View>
             <View style={styles.container}>
               <View style={styles.createProfileSection}>
@@ -121,12 +114,14 @@ const ProfileScreen = connect(mapStateToProps, {
                 </View>
                 <Input
                   {...{ScrollRef}}
+                  editable={!isAllDataEntered}
                   value={isAllDataEntered ? userCredentials.name : fields.name}
                   onChangeText={(value) => handleFields('firstName', value)}
                   placeholder={appLocalization.inputNamePlaceholder}
                 />
                 <Input
                   {...{ScrollRef}}
+                  editable={!isAllDataEntered}
                   value={
                     isAllDataEntered ? userCredentials.surname : fields.surname
                   }
@@ -135,12 +130,13 @@ const ProfileScreen = connect(mapStateToProps, {
                 />
                 <Picker
                   data={DATA}
+                  disabled={isAllDataEntered}
                   defaultValue={fields.city}
                   onChangeItem={(value) => handleFields('city', value.value)}
                 />
                 <Input
                   {...{ScrollRef}}
-                  editable={true}
+                  editable={!isAllDataEntered}
                   value={
                     isAllDataEntered ? userCredentials.address : fields.address
                   }
