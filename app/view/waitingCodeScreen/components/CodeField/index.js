@@ -16,13 +16,13 @@ const CodeFieldComponent = connect(null, {setCodeValidated, setEnteredCode})(
     const valueValidation = (value) => {
       if (isNaN(value)) {
         Alert.alert('Please enter correct OTP');
+      } else if (value.length === 6) {
+        setValue(value);
+        setCodeValidated(true), setEnteredCode(value);
       } else {
         setValue(value);
-        setEnteredCode(value);
       }
     };
-    value.length === 6 ? setCodeValidated(true) : null;
-
     const ref = useBlurOnFulfill({value, cellCount: CELL_COUNT});
     const [props, getCellOnLayoutHandler] = useClearByFocusCell({
       value,
