@@ -1,8 +1,8 @@
-import React, {useState, useEffect} from 'react';
-import {Text, TouchableOpacity} from 'react-native';
-import styles from '../styles';
+import React, { useState, useEffect } from "react";
+import { Text, TouchableOpacity } from "react-native";
+import styles from "../styles";
 
-const Timer = () => {
+const Timer = ({ onPress }) => {
   const [count, setCount] = useState(30);
   useEffect(() => {
     let timer = setInterval(() => {
@@ -22,7 +22,7 @@ const Timer = () => {
   return (
     <>
       {count === 0 ? (
-        <TouchableOpacity>
+        <TouchableOpacity onPress={onPress}>
           <Text style={styles.text}>Kod gəlmədi?</Text>
         </TouchableOpacity>
       ) : (
