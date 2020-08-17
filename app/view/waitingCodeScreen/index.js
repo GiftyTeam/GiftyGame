@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect} from 'react';
 import {
   ImageBackground,
   Image,
@@ -7,7 +7,6 @@ import {
   TouchableWithoutFeedback,
   KeyboardAvoidingView,
   View,
-  Alert,
 } from 'react-native';
 import styles from './styles';
 import {imgPath} from '../../modules/utils/images';
@@ -32,14 +31,15 @@ const mapStateToProps = (state) => ({
 
 const WaitingCodeScreen = connect(mapStateToProps, {setCodeValidated})(
   ({navigation, isValidated, setCodeValidated, confirm, code}) => {
+    useEffect(() => {
+      setCodeValidated(false);
+    }, []);
     const confirmCode = async (code) => {
       try {
-        let codeconfirmation = await confirm.confirm(code);
-        console.log('codeconfirmation', codeconfirmation);
+        await confirm.confirm(code);
         navigation.navigate('Profile');
       } catch (error) {
         console.log('Invalid code.', error);
-        Alert.alert('invalid code', error);
       }
     };
 
@@ -52,19 +52,21 @@ const WaitingCodeScreen = connect(mapStateToProps, {setCodeValidated})(
             source={imgPath.mainBackground}
             style={styles.container}>
             <StatusBar backgroundColor={colors.wedgewood} />
-            <Image source={imgPath.logo} style={styles.logo} />
-            <CodeFieldComponent />
-            <Button
-              name={appLocalization.nextButton}
-              isDisabled={!isValidated}
-              onPress={() => {
-                confirmCode(code);
-                setCodeValidated(false);
-              }}
-            />
-
-            <Timer />
-            <View style={{flex: 1}} />
+            <View style={styles.logoWrapper}>
+              <Image source={imgPath.logo} style={styles.logo} />
+            </View>
+            <View style={styles.codeWrapper}>
+              <CodeFieldComponent />
+              <Button
+                name={appLocalization.nextButton}
+                isDisabled={!isValidated}
+                onPress={() => {
+                  confirmCode(code);
+                }}
+              />
+              <Timer onPress={() => navigation.navigate('Registration')} />
+              <View style={{flex: 1}} />
+            </View>
           </ImageBackground>
         </TouchableWithoutFeedback>
       </KeyboardAvoidingView>

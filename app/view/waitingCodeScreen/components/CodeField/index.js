@@ -1,13 +1,13 @@
 import React, {useState} from 'react';
 import {Text, Alert} from 'react-native';
+import {connect} from 'react-redux';
+import {styles} from './styles';
 import {
   CodeField,
   Cursor,
   useBlurOnFulfill,
   useClearByFocusCell,
 } from 'react-native-confirmation-code-field';
-import {styles} from './styles';
-import {connect} from 'react-redux';
 import {
   setCodeValidated,
   setEnteredCode,
@@ -25,18 +25,23 @@ const CodeFieldComponent = connect(mapStateToProps, {
   setUserStartedTypingCode,
 })(({setCodeValidated, setEnteredCode, setUserStartedTypingCode, confirm}) => {
   const [value, setValue] = useState('');
-  console.log('confirm', confirm);
-
+  const [cellTextColor, setCellTextColor] = useState('white');
   const checkCode = async (value) => {
     try {
-      let codeconfirmation = await confirm.console.log(
-        'codeconfirmation',
-        codeconfirmation,
-      );
-      codeconfirmation ? setCodeValidated(true) : setCodeValidated(false);
+      await confirm.confirm(value);
+      setCodeValidated(true);
+      setCellTextColor('white');
     } catch (error) {
+      setCodeValidated(false);
+      setCellTextColor('red');
       console.log('Invalid code.', error);
-      Alert.alert('invalid code', error);
+    }
+  };
+  const valueValidation = (value) => {
+    if (isNaN(value)) {
+      Alert.alert('Please enter correct OTP');
+    } else {
+      setValue(value);
     }
   };
 
@@ -48,20 +53,10 @@ const CodeFieldComponent = connect(mapStateToProps, {
       setUserStartedTypingCode(false);
       break;
     case value.length === 6:
-      checkCode();
+      setEnteredCode(value);
+      checkCode(value);
       break;
   }
-
-  const valueValidation = (value) => {
-    if (isNaN(value)) {
-      Alert.alert('Please enter correct OTP');
-    } else if (value.length === 6) {
-      setValue(value);
-      setEnteredCode(value);
-    } else {
-      setValue(value);
-    }
-  };
   const ref = useBlurOnFulfill({value, cellCount: CELL_COUNT});
   const [props, getCellOnLayoutHandler] = useClearByFocusCell({
     value,
@@ -81,7 +76,11 @@ const CodeFieldComponent = connect(mapStateToProps, {
       renderCell={({index, symbol, isFocused}) => (
         <Text
           key={index}
-          style={[styles.cell, isFocused && styles.focusCell]}
+          style={[
+            styles.cell,
+            isFocused && styles.focusCell,
+            {color: cellTextColor},
+          ]}
           onLayout={getCellOnLayoutHandler(index)}>
           {symbol || (isFocused ? <Cursor /> : null)}
         </Text>
