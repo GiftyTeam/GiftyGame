@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from 'react';
 import {
   ImageBackground,
   Image,
@@ -8,21 +8,21 @@ import {
   KeyboardAvoidingView,
   View,
   Alert,
-} from "react-native";
-import styles from "./styles";
-import { imgPath } from "../../modules/utils/images";
-import appLocalization from "../../localization/localization";
-import Button from "../../components/button";
-import { colors } from "../../modules/utils/colors";
-import Timer from "./components/Timer";
-import CodeFieldComponent from "./components/CodeField";
-import { connect } from "react-redux";
+} from 'react-native';
+import styles from './styles';
+import {imgPath} from '../../modules/utils/images';
+import appLocalization from '../../localization/localization';
+import Button from '../../components/button';
+import {colors} from '../../modules/utils/colors';
+import Timer from './components/Timer';
+import CodeFieldComponent from './components/CodeField';
+import {connect} from 'react-redux';
 import {
   selectIsCodeValidate,
   setCodeValidated,
   selectConfirmCode,
   selectEnteredCode,
-} from "./redux/codeValidation";
+} from './redux/codeValidation';
 
 const mapStateToProps = (state) => ({
   isValidated: selectIsCodeValidate(state),
@@ -30,28 +30,27 @@ const mapStateToProps = (state) => ({
   code: selectEnteredCode(state),
 });
 
-const WaitingCodeScreen = connect(mapStateToProps, { setCodeValidated })(
-  ({ navigation, isValidated, setCodeValidated, confirm, code }) => {
+const WaitingCodeScreen = connect(mapStateToProps, {setCodeValidated})(
+  ({navigation, isValidated, setCodeValidated, confirm, code}) => {
     const confirmCode = async (code) => {
       try {
-        await confirm.confirm(code);
-        navigation.navigate("Profile");
+        let codeconfirmation = await confirm.confirm(code);
+        console.log('codeconfirmation', codeconfirmation);
+        navigation.navigate('Profile');
       } catch (error) {
-        console.log("Invalid code.", error);
-        Alert.alert("invalid code", error);
+        console.log('Invalid code.', error);
+        Alert.alert('invalid code', error);
       }
     };
 
     return (
       <KeyboardAvoidingView
-        behavior={Platform.OS === "ios" ? "padding" : null}
-        style={{ flex: 1 }}
-      >
+        behavior={Platform.OS === 'ios' ? 'padding' : null}
+        style={{flex: 1}}>
         <TouchableWithoutFeedback onPress={Keyboard.dismiss()}>
           <ImageBackground
             source={imgPath.mainBackground}
-            style={styles.container}
-          >
+            style={styles.container}>
             <StatusBar backgroundColor={colors.wedgewood} />
             <Image source={imgPath.logo} style={styles.logo} />
             <CodeFieldComponent />
@@ -65,11 +64,11 @@ const WaitingCodeScreen = connect(mapStateToProps, { setCodeValidated })(
             />
 
             <Timer />
-            <View style={{ flex: 1 }} />
+            <View style={{flex: 1}} />
           </ImageBackground>
         </TouchableWithoutFeedback>
       </KeyboardAvoidingView>
     );
-  }
+  },
 );
 export default WaitingCodeScreen;

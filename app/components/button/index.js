@@ -11,8 +11,7 @@ const Button = ({name, onPress, isDisabled = true, buttonStyle}) => {
     <Pressable
       style={[{...styles.button, backgroundColor}, buttonStyle]}
       onPress={onPress}
-      disabled={isDisabled}
-      ref={ref}>
+      disabled={isDisabled}>
       <Text style={styles.buttonText}>{name}</Text>
     </Pressable>
   );
