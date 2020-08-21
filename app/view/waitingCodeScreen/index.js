@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {
   ImageBackground,
   Image,
@@ -16,14 +16,33 @@ import {colors} from '../../modules/utils/colors';
 import Timer from './components/Timer';
 import CodeFieldComponent from './components/CodeField';
 import {connect} from 'react-redux';
-import {selectIsCodeValidate, setCodeValidated} from './redux/codeValidation';
+import {
+  selectIsCodeValidate,
+  setCodeValidated,
+  selectConfirmCode,
+  selectEnteredCode,
+} from './redux/codeValidation';
 
 const mapStateToProps = (state) => ({
   isValidated: selectIsCodeValidate(state),
+  confirm: selectConfirmCode(state),
+  code: selectEnteredCode(state),
 });
 
 const WaitingCodeScreen = connect(mapStateToProps, {setCodeValidated})(
-  ({navigation, isValidated, setCodeValidated}) => {
+  ({navigation, isValidated, setCodeValidated, confirm, code}) => {
+    useEffect(() => {
+      setCodeValidated(false);
+    }, []);
+    const confirmCode = async (code) => {
+      try {
+        await confirm.confirm(code);
+        navigation.navigate('Profile');
+      } catch (error) {
+        console.log('Invalid code.', error);
+      }
+    };
+
     return (
       <KeyboardAvoidingView
         behavior={Platform.OS === 'ios' ? 'padding' : null}
@@ -33,19 +52,21 @@ const WaitingCodeScreen = connect(mapStateToProps, {setCodeValidated})(
             source={imgPath.mainBackground}
             style={styles.container}>
             <StatusBar backgroundColor={colors.wedgewood} />
-            <Image source={imgPath.logo} style={styles.logo} />
-            <CodeFieldComponent />
-            <Button
-              name={appLocalization.nextButton}
-              isDisabled={!isValidated}
-              onPress={() => {
-                navigation.navigate('Profile');
-                setCodeValidated(false);
-              }}
-            />
-
-            <Timer />
-            <View style={{flex: 1}} />
+            <View style={styles.logoWrapper}>
+              <Image source={imgPath.logo} style={styles.logo} />
+            </View>
+            <View style={styles.codeWrapper}>
+              <CodeFieldComponent />
+              <Button
+                name={appLocalization.nextButton}
+                isDisabled={!isValidated}
+                onPress={() => {
+                  confirmCode(code);
+                }}
+              />
+              <Timer onPress={() => navigation.navigate('Registration')} />
+              <View style={{flex: 1}} />
+            </View>
           </ImageBackground>
         </TouchableWithoutFeedback>
       </KeyboardAvoidingView>

@@ -6,12 +6,18 @@ const styles = StyleSheet.create({
     paddingHorizontal: 27,
     justifyContent: 'flex-end',
   },
+  logoWrapper: {
+    flex: 1,
+    justifyContent: 'center',
+    height: '50%',
+  },
+  codeWrapper: {
+    flex: 1,
+  },
   logo: {
     width: 156,
     height: 129,
     alignSelf: 'center',
-    marginBottom: 90,
-    marginTop: 130,
   },
   text: {
     color: 'white',

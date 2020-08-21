@@ -4,6 +4,7 @@ import {colors} from '../../../../modules/utils/colors';
 export const styles = StyleSheet.create({
   container: {
     width: Dimensions.get('window').width - 54,
+    marginBottom: 15,
   },
   cell: {
     width: 40,
