@@ -1,4 +1,4 @@
-import React, {useRef} from 'react';
+import React from 'react';
 import {View, TextInput, Dimensions} from 'react-native';
 import styles from './styles';
 import {colors} from '../../modules/utils/colors';
@@ -10,7 +10,7 @@ const Input = ({
   onChangeText,
   isPhoneNumber = false,
   ScrollRef,
-  ...rest
+  editable
 }) => {
   const scrollOnFocus = () => {
     setTimeout(() => {
@@ -37,7 +37,7 @@ const Input = ({
         placeholder={placeholder}
         placeholderTextColor={colors.silver}
         onFocus={scrollOnFocus}
-        rest={rest}
+        editable={editable}
       />
     </View>
   );

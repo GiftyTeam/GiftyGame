@@ -5,7 +5,7 @@ import {modalStyle} from './styles';
 import {ModalVisible} from '../redux/changeAction';
 import appLocalization from '../../../localization/localization';
 
-const DropDown = () => {
+const DropDown = ({navigation}) => {
   const dispatch = useDispatch();
   const modalVisible = useSelector(
     (state) => state.mainScreenData.modalVisible,
@@ -48,7 +48,7 @@ const DropDown = () => {
           </View>
 
           <TouchableOpacity
-            onPress={() => console.log('Profile')}
+            onPress={() => navigation.navigate('Profile')}
             style={modalStyle.buttonStyle3}>
             <Text style={modalStyle.buttonText}>{appLocalization.profile}</Text>
           </TouchableOpacity>

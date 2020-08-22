@@ -1,11 +1,9 @@
-const MODULE_NAME = 'codeValidation';
-
 export const selectIsCodeValidate = (state) =>
-  state[MODULE_NAME].isCodeValidated;
-export const selectConfirmCode = (state) => state[MODULE_NAME].confirmCode;
-export const selectEnteredCode = (state) => state[MODULE_NAME].enteredCode;
+state.waitingCodeReducer.isCodeValidated;
+export const selectConfirmCode = (state) => state.waitingCodeReducer.confirmCode;
+export const selectEnteredCode = (state) => state.waitingCodeReducer.enteredCode;
 export const selectIsUserStartedTypingCode = (state) =>
-  state[MODULE_NAME].isUserStartedTypingCode;
+  state.waitingCodeReducer.isUserStartedTypingCode;
 
 const CODE_VALIDATION = 'CODE_VALIDATION';
 const CONFIRM_CODE = 'CONFIRM_CODE';
@@ -37,7 +35,7 @@ const initialState = {
   isUserStartedTypingCode: false,
 };
 
-export const waitingCodeReducer = (state = initialState, {type, payload}) => {
+export default function waitingCodeReducer (state = initialState, {type, payload}) {
   switch (type) {
     case CODE_VALIDATION:
       return {
@@ -64,4 +62,4 @@ export const waitingCodeReducer = (state = initialState, {type, payload}) => {
     default:
       return state;
   }
-};
+}
