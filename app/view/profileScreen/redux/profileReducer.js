@@ -12,7 +12,6 @@ export default function profileReducer(state = initialState, {type, payload}) {
       return {
         ...state,
         userExtraData: {
-          phoneNumber:'503181063',
           firstName: payload.firstName,
           lastName: payload.lastName,
           city: payload.city,

@@ -1,7 +1,7 @@
 
 const URL = "https://gamegifty.herokuapp.com/addNewUser";
 
-export function fetchAPI(userData){
+export default function fetchAPI(userData){
     console.log('userData',userData);
     fetch(URL, {
         method: 'POST',

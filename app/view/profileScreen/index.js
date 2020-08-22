@@ -1,7 +1,9 @@
+import { selectCurrentUserNumber } from '../registrationScreen/redux/currentUser';
 import appLocalization from '../../localization/localization';
 import {DATA} from '../../../__mocks__/dropDownPickerData';
 import {getUserCredentials} from './redux/profileReducer';
 import React, {useState, useRef, useEffect} from 'react';
+import {addUserCredentials} from './redux/profileAction';
 import Icon from 'react-native-vector-icons/Feather';
 import ImagePicker from 'react-native-image-picker';
 import {imgPath} from '../../modules/utils/images';
@@ -11,7 +13,6 @@ import Input from '../../components/textInput';
 import Button from '../../components/button';
 import {connect} from 'react-redux';
 import {styles} from './styles';
-import {addUserCredentials} from './redux/profileAction';
 import {
   TouchableWithoutFeedback,
   KeyboardAvoidingView,
@@ -24,8 +25,7 @@ import {
   Image,
   View,
 } from 'react-native';
-import {fetchAPI} from '../../modules/API';
-import { selectCurrentUserNumber } from '../registrationScreen/redux/currentUser';
+import fetchAPI from '../../modules/API';
 
 const mapStateToProps = (state) => ({
   userCredentials: getUserCredentials(state),
@@ -48,12 +48,12 @@ const ProfileScreen = connect(mapStateToProps, {
   console.log('currentUserNumber',currentUserNumber);
   const objectValues = Object.values(fields);
   const handleProfilePhoto = (name) => {
-    setIsAvatarSelected(true);
     const options = {
       noData: true,
     };
     ImagePicker.launchImageLibrary(options, (response) => {
       if (response.uri) {
+        setIsAvatarSelected(true);
         setFields((fields) => ({
           ...fields,
           [name]: response,
@@ -71,7 +71,7 @@ const ProfileScreen = connect(mapStateToProps, {
   const handleNextButton = () => {
     setIsAllDataEntered(true);
     addUserCredentials(fields);
-    fetchAPI({...fields, usedQuestions: [], phoneNumber: '0503181063'});
+    fetchAPI({...fields, usedQuestions: [], phoneNumber: currentUserNumber});
     navigation.navigate('InstructionScreen');
   };
 
