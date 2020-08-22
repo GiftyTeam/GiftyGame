@@ -25,14 +25,16 @@ import {
   View,
 } from 'react-native';
 import {fetchAPI} from '../../modules/API';
+import { selectCurrentUserNumber } from '../registrationScreen/redux/currentUser';
+
 const mapStateToProps = (state) => ({
   userCredentials: getUserCredentials(state),
+  currentUserNumber: selectCurrentUserNumber(state),
 });
 
 const ProfileScreen = connect(mapStateToProps, {
   addUserCredentials,
-  addUserCredentials,
-})(({navigation, userCredentials, addUserCredentials}) => {
+})(({navigation, userCredentials, addUserCredentials,currentUserNumber}) => {
   const [isAvatarSelected, setIsAvatarSelected] = useState(false);
   const [isAllDataEntered, setIsAllDataEntered] = useState(false);
   const ScrollRef = useRef(null);
@@ -43,6 +45,7 @@ const ProfileScreen = connect(mapStateToProps, {
     city: '',
     avatar: '',
   });
+  console.log('currentUserNumber',currentUserNumber);
   const objectValues = Object.values(fields);
   const handleProfilePhoto = (name) => {
     setIsAvatarSelected(true);
@@ -68,7 +71,7 @@ const ProfileScreen = connect(mapStateToProps, {
   const handleNextButton = () => {
     setIsAllDataEntered(true);
     addUserCredentials(fields);
-    fetchAPI({...userCredentials, usedQuestions: []});
+    fetchAPI({...fields, usedQuestions: [], phoneNumber: '0503181063'});
     navigation.navigate('InstructionScreen');
   };
 

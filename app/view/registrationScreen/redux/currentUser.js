@@ -1,8 +1,7 @@
-const MODULE_NAME = 'currentUser';
 const ADD_CURRENT_USER_NUMBER = 'ADD_CURRENT_USER_NUMBER';
 
 export const selectCurrentUserNumber = (state) =>
-  state[MODULE_NAME].phoneNumber;
+  state.currentUserReducer.phoneNumber;
 
 export const addCurrentUserNumber = (payload) => ({
   type: ADD_CURRENT_USER_NUMBER,
@@ -13,7 +12,12 @@ const initialState = {
   phoneNumber: null,
 };
 
-export const currentUserReducer = (state = initialState, {type, payload}) => {
+export default function currentUserReducer(
+  state = initialState,
+  {type, payload},
+) {
+  console.log('state',state);
+  console.log('payload',payload);
   switch (type) {
     case ADD_CURRENT_USER_NUMBER:
       return {
@@ -23,4 +27,4 @@ export const currentUserReducer = (state = initialState, {type, payload}) => {
     default:
       return state;
   }
-};
+}
