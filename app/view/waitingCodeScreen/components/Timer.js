@@ -1,8 +1,18 @@
 import React, {useState, useEffect} from 'react';
 import {Text, TouchableOpacity} from 'react-native';
 import styles from '../styles';
+import {connect} from 'react-redux';
+import {selectIsUserStartedTypingCode} from '../redux/codeValidation';
 
-const Timer = () => {
+const mapStateToProps = (state) => ({
+  isUserStartedTypingCode: selectIsUserStartedTypingCode(state),
+});
+
+const Timer = connect(
+  mapStateToProps,
+  null,
+)(({onPress, isUserStartedTypingCode}) => {
+  console.log('isUserStartedTypingCode', isUserStartedTypingCode);
   const [count, setCount] = useState(30);
   useEffect(() => {
     let timer = setInterval(() => {
@@ -21,8 +31,8 @@ const Timer = () => {
   const timerSeconds = count < 10 ? `0${count}` : `${count}`;
   return (
     <>
-      {count === 0 ? (
-        <TouchableOpacity>
+      {count === 0 || isUserStartedTypingCode ? (
+        <TouchableOpacity onPress={onPress}>
           <Text style={styles.text}>Kod gəlmədi?</Text>
         </TouchableOpacity>
       ) : (
@@ -30,6 +40,6 @@ const Timer = () => {
       )}
     </>
   );
-};
+});
 
 export default Timer;

@@ -1,24 +1,28 @@
-import { StyleSheet } from 'react-native';
-import { colors } from '../../modules/utils/colors';
+import {StyleSheet} from 'react-native';
+import {colors} from '../../modules/utils/colors';
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
+  logoWrapper: {
+    flex: 1,
+    justifyContent: 'center',
+  },
+
   logo: {
     width: 156,
     height: 129,
-    alignSelf:'center'
-
+    alignSelf: 'center',
   },
   imageBackground: {
     width: '100%',
     height: '100%',
-    justifyContent: 'space-evenly',
+    justifyContent: 'space-between',
   },
   inputContainer: {
     paddingHorizontal: 27,
-    alignItems: 'center',
+    height: '50%',
   },
   input: {
     height: 60,
@@ -29,9 +33,11 @@ const styles = StyleSheet.create({
     paddingVertical: 2,
     alignSelf: 'stretch',
     borderColor: colors.fountainBlue,
-    fontFamily: 'BalooCh+ettan-Regular',
+    fontFamily: 'BalooChettan-Regular',
     color: colors.white,
-    fontSize: 30,
+    fontSize: 32,
+    marginBottom: 15,
+    alignItems: 'stretch',
   },
 });
 
