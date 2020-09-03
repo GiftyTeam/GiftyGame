@@ -56,6 +56,10 @@ const CodeFieldComponent = connect(mapStateToProps, {
       setEnteredCode(value);
       checkCode(value);
       break;
+      case value.length !== 6:
+        setCodeValidated(false);
+
+      break;
   }
   const ref = useBlurOnFulfill({value, cellCount: CELL_COUNT});
   const [props, getCellOnLayoutHandler] = useClearByFocusCell({
@@ -81,7 +85,8 @@ const CodeFieldComponent = connect(mapStateToProps, {
             isFocused && styles.focusCell,
             {color: cellTextColor},
           ]}
-          onLayout={getCellOnLayoutHandler(index)}>
+          onLayout={getCellOnLayoutHandler(index)}
+          >
           {symbol || (isFocused ? <Cursor /> : null)}
         </Text>
       )}
