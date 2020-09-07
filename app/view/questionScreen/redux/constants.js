@@ -1,0 +1,1 @@
+export const SELECT_ANSWER = "SELECT_ANSWER"
