@@ -5,6 +5,8 @@
 # Xcode
 #
 build/
+.idea/
+package-lock.json
 *.pbxuser
 !default.pbxuser
 *.mode1v3
@@ -23,8 +25,6 @@ DerivedData
 
 # Android/IntelliJ
 #
-build/
-.idea
 .gradle
 local.properties
 *.iml
