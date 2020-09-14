@@ -47,7 +47,7 @@ const MainScreen = ({navigation}) => {
               isDisabled={false}
               name={appLocalization.startGame}
               style={buttonStyle.container}
-              onPress={()=>navigation.navigate('Photo')}
+              onPress={()=>navigation.navigate('Question')}
             />
           </View>
         </View>

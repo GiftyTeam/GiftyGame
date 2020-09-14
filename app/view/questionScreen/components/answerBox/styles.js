@@ -12,7 +12,7 @@ const styles = StyleSheet.create({
     borderRadius: 18,
     alignItems: 'center',
     justifyContent: 'space-between',
-    paddingHorizontal: '2.5%',
+    paddingHorizontal: 24,
   },
   answerText: {
     color: 'white',

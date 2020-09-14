@@ -1,7 +1,8 @@
-import {SELECT_ANSWER} from './constants';
+import {SELECT_ANSWER, SET_RESULT} from './constants';
 
 const INITIAL_STATE = {
   answerID: '',
+  result: {},
 };
 
 export const answerReducer = (state = INITIAL_STATE, action) => {
@@ -10,6 +11,12 @@ export const answerReducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         answerID: action.payload,
+      };
+    }
+    case SET_RESULT: {
+      return {
+        ...state,
+        result: action.payload,
       };
     }
     default: {

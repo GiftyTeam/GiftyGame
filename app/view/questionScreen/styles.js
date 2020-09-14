@@ -36,7 +36,8 @@ const styles = StyleSheet.create({
   },
   resultContainer: {
     flex: 1,
-    marginTop: 31,
+    marginTop: 30,
+    marginBottom: 10,
     alignSelf: 'center',
   },
   resultText: {
