@@ -56,6 +56,10 @@ const CodeFieldComponent = connect(mapStateToProps, {
       setEnteredCode(value);
       checkCode(value);
       break;
+    case value.length !== 6:
+      setCodeValidated(false);
+
+      break;
   }
   const ref = useBlurOnFulfill({value, cellCount: CELL_COUNT});
   const [props, getCellOnLayoutHandler] = useClearByFocusCell({
